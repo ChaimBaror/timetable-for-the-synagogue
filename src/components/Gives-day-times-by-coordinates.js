@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { getZmanimJson } from "kosher-zmanim";
 
-import SelectPlacesFromGoogle from '../select-places-from-google/select-places-from-google';
+import SelectPlacesFromGoogle from './select-places-from-google';
 // let fs = require('browserify');
 
 

@@ -4,7 +4,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
 } from "react-places-autocomplete";
-import FormInput from '../form-input/form-input'
+import FormInput from './form-input'
 
 export default function SelectPlacesFromGoogle(props){
     const [address, setAddress] = React.useState("");

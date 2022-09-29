@@ -3,13 +3,13 @@ import { Route, Switch, BrowserRouter as Router} from 'react-router-dom';
 
 // import { auth ,createUserProfileDocument} from './firebase/firebase.config';
 
-import Header from './components/header/Header';
-import drogAndDrop from './components/drog-and-drop/drog-and-drop';
+import Header from './components/Header';
+import drogAndDrop from './components/drog-and-drop';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up';
 import ExmpleForAnimationComponents from './pages/ExmpleForAnimationComponents/ExmpleForAnimationComponents';
 import FiveCellGrid from './pages/GridTamplates/FiveCellGrid/FiveCellGrid';
-import SelectPlacesFromGoogle from './components/select-places-from-google/select-places-from-google';
-import GivesDayTimesByCoordinates from './components/Gives-day-times-by-coordinates/Gives-day-times-by-coordinates'
+import SelectPlacesFromGoogle from './components/select-places-from-google';
+import GivesDayTimesByCoordinates from './components/Gives-day-times-by-coordinates'
 
 
 class App extends react.Component {

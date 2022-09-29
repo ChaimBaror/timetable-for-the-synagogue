@@ -17,7 +17,7 @@ import {
 } from "kosher-zmanim";
 import moment from "moment";
 import ClockAnalog from "./ClockAnalog";
-import "../../styles/ScreenKosherZmanim.scss";
+import "../styles/ScreenKosherZmanim.scss";
 
 const ScreenKosherZmanim = () => {
     const myDate = new Date();

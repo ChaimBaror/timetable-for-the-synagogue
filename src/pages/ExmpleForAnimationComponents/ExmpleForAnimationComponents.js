@@ -1,8 +1,8 @@
 
 import './ExmpleForAnimationComponents.scss';
 
-import { TextDisplayAnimation } from '../../components/TextDisplay/TextDisplayAnimation';
-import ScreenKosherZmanim from '../../components/HomePage/ScreenKosherZmanim';
+import { TextDisplayAnimation } from '../../components/TextDisplayAnimation';
+import ScreenKosherZmanim from '../../components/ScreenKosherZmanim';
 
 function ExmpleForAnimationComponents() {
   let text = ` 
