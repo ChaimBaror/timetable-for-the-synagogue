@@ -1,5 +1,5 @@
 import React from 'react';
-import './TextDisplayAnimation.scss'
+import '../styles/TextDisplayAnimation.scss'
 import parse from 'html-react-parser';
 
 

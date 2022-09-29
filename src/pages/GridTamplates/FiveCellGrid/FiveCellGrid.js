@@ -1,7 +1,7 @@
 import React from 'react';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import { TextDisplayAnimation } from '../../../components/TextDisplay/TextDisplayAnimation';
-import ScreenKosherZmanim from '../../../components/HomePage/ScreenKosherZmanim';
+import { TextDisplayAnimation } from '../../../components/TextDisplayAnimation';
+import ScreenKosherZmanim from '../../../components/ScreenKosherZmanim';
 import './FiveCellGrid.scss';
 
 function FiveCellGrid(props) {

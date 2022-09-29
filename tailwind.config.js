@@ -5,7 +5,7 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: ['./src//components/**/*.js', './src/pages/**/*.js'],
+  purge: ['./src/components/**/*.js', './src/pages/**/*.js'],
   variants: {
     extend: {
       backgroundColor: ['active', 'checked'],

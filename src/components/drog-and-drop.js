@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './drog-and-drop.style.scss';
+import '../styles/drog-and-drop.style.scss';
 
 export default class AppDragDrop extends Component {
     state = {

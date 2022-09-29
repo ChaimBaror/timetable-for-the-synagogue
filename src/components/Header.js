@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 // import { ReactComponent as Logo } from '../../assets/crown.svg';
 
-import './Header.scss';
+import '../styles/Header.scss';
 
 const Header = ({ currentUser }) => (
 
