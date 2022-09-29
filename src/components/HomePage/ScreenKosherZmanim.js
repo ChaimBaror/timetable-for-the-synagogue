@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Hebcal from "hebcal";
+
 // import * as KosherZmanim from "kosher-zmanim";
 import {
     Calendar,
@@ -54,9 +55,9 @@ const ScreenKosherZmanim = () => {
                 <div className='date_information_text'>
                     פרשת {hebcal.getSedra('h')}
                 </div>
-                <div>
+                {/* <div>
                     <ClockAnalog />
-                </div>
+                </div> */}
             </div>
             {/* <SpinnerOnly />  */}
 
@@ -157,6 +158,19 @@ const ScreenKosherZmanim = () => {
                         צאת הכוכבים ר"ת (72):
                     </div>
                 </div >
+                <div className='list_item'>
+                    <div class="w-50 text-center">
+                        {hebcal.dafyomi('h')}
+                    </div>
+                    <div dir='auto' class="w-50 text-rigth">
+                        דף יומי:
+                    </div>
+                </div >
+                <div class="w-100 center-all">
+
+
+                </div>
+
             </div >
         </div >
     )
