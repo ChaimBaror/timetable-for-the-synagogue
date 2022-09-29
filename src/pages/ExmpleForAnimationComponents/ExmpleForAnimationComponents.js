@@ -1,12 +1,13 @@
 
-import './ExmpleForAnimationComponents.css';
+import './ExmpleForAnimationComponents.scss';
 
-import {TextDisplayAnimation} from '../../components/TextDisplay/TextDisplayAnimation';
+import { TextDisplayAnimation } from '../../components/TextDisplay/TextDisplayAnimation';
+import ScreenKosherZmanim from '../../components/HomePage/ScreenKosherZmanim';
 
 function ExmpleForAnimationComponents() {
-  let text =` 
+  let text = ` 
   נא לכווין בברכות לעילוי נשמתו אבגדהוזחטיכלמנסעפצקשת ולברך בכוונה`;
-  let text1 =`
+  let text1 = `
   
   <p><נא לכווין בברכות לעי
   נא לכווין בברכות לעילוי נשמתו אבגדהוזחטיכלמנסעפצקשת ולברך בכוונה
@@ -50,12 +51,15 @@ function ExmpleForAnimationComponents() {
    `;
   return (
     <div className='ExmpleForAnimationComponents'>
-        <div className='item1'>
-            <TextDisplayAnimation direction={'vertical'} id={Math.random() * 100} text={text1}/>
-        </div>
-        <div className='item2'>
-            <TextDisplayAnimation direction={'horizontal'} id={Math.random() * 100} text={text}/>
-        </div>
+      <div>
+        <ScreenKosherZmanim />
+      </div>
+      {/* <div className='item1'>
+        <TextDisplayAnimation direction={'vertical'} id={Math.random() * 100} text={text1} />
+      </div> */}
+      {/* <div className='item2'>
+        <TextDisplayAnimation direction={'horizontal'} id={Math.random() * 100} text={text} />
+      </div> */}
     </div>
   );
 }
