@@ -18,6 +18,7 @@ const list_zmanim = [
     { name: "צאת הכוכבים", zmanim: "TzaisGeonim4Point37Degrees" },
     { name: 'את הכוכבים בעל התני"א', zmanim: "TzaisBaalHatanya" },
     { name: 'צאת הכוכבים ר"ת', zmanim: "Tzais72" },
+    
 
 ]
 
@@ -42,6 +43,7 @@ const ScreenKosherZmanim = () => {
     const zmanim = getZmanimJson(options);
 
     const basicZmanim = zmanim.Zmanim;
+    console.log("basicZmanim : ",basicZmanim);
 
     return (
         <div className='continer'>
@@ -55,7 +57,7 @@ const ScreenKosherZmanim = () => {
             </div>
             <div className='list_of_zmanim'>
                 {list_zmanim.map(({ name, zmanim }) => (
-                    <ItemList key={name} name={name} zmanim={moment(new Date(basicZmanim[zmanim])).format(' HH:mm:ss ')} />)
+                    <ItemList key={name} name={`${name}:`} zmanim={moment(new Date(basicZmanim[zmanim])).format(' HH:mm:ss ')} />)
                 )}
 
                 <div className='list_item'>
