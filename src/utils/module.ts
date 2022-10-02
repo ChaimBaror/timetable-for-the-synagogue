@@ -1,3 +1,28 @@
+
+export const list_zmanim = [
+    { name: "עלות השחר", zmanim: "AlosHashachar" },
+    { name: "זריחה", zmanim: "Sunrise" },
+    { name: 'סוף זמן ק"ש מג"א', zmanim: "SofZmanShmaMGA" },
+    { name: 'סוף זמן ק"ש הגר"א', zmanim: "SofZmanShmaGRA" },
+    { name: 'סוף זמן תפילה מג"א', zmanim: "SofZmanTfilaMGA" },
+    { name: 'סוף זמן תפילה הגר"א', zmanim: "SofZmanTfilaGRA" },
+    { name: "בין השמשות (18 דקות) ", zmanim: "BainHasmashosYereim18Minutes" },
+    { name: "הדלקת נרות", zmanim: "CandleLighting" },
+    { name: "שקיעה", zmanim: "Sunset" },
+    { name: "צאת הכוכבים", zmanim: "TzaisGeonim4Point37Degrees" },
+    { name: 'את הכוכבים בעל התני"א', zmanim: "TzaisBaalHatanya" },
+    { name: 'צאת הכוכבים ר"ת', zmanim: "Tzais72" },
+
+]
+
+export const list_zmanim_Tfila = [
+    { name: "שחרית", zmanim: "8:00" },
+    { name: "מנחה", zmanim: "13:15" },
+    { name: 'ערבית', zmanim: "19:00" },
+
+]
+
+
 export const moduleZmanim =[
 //  Alos16Point1Degrees
 // : 

@@ -4,7 +4,7 @@ import AnalogClock from 'analog-clock-react';
 const ClockAnalog = () => {
     const [options, setOptions] = useState({
         // useCustomTime: true,
-        width: "300px",
+        width: "250px",
         border: true,
         borderColor: "#50bfff",
         baseColor: "#99daff",
@@ -17,36 +17,6 @@ const ClockAnalog = () => {
         },
     })
 
-
-
-    // useEffect(() => {
-
-    //     const ausTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Jerusalem" });
-    //     const date = new Date(ausTime);
-    //     setOptions((pev)=>pev , {
-    //         seconds: date.getSeconds(),
-    //         minutes: date.getMinutes(),
-    //         hours: date.getHours()})
-
-    // },)
-
-    // const options = {
-    //     // useCustomTime: true,
-    //     width: "150px",
-    //     border: true,
-    //     borderColor: "#50bfff",
-    //     baseColor: "#99daff",
-    //     centerColor: "#99daff",
-    //     centerBorderColor: "#50bfff",
-    //     handColors: {
-    //         second: "#d81c7a",
-    //         minute: "#ffffff",
-    //         hour: "#ffffff"
-    //     },
-    //     seconds: date.getSeconds(),
-    //     minutes: date.getMinutes(),
-    //     hours: date.getHours()
-    // };
 
     return (
         <div className='continer'>
