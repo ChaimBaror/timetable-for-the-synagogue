@@ -1,11 +1,11 @@
 import React from 'react';
-import { AppRouter } from './components/router/AppRouter';
+import { AppRouter } from './router/AppRouter';
 
 function App() {
   return (
-    <div className="">
+    <>
       <AppRouter />
-    </div>
+    </>
   );
 }
 
