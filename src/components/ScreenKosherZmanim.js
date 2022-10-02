@@ -1,38 +1,33 @@
 import React, { useEffect } from "react";
+import { getZmanimJson, HebrewDateFormatter, JewishCalendar, } from "kosher-zmanim";
 import Hebcal from "hebcal";
-
-// import * as KosherZmanim from "kosher-zmanim";
-import {
-    Calendar,
-    Daf,
-    getZmanimJson,
-    HebrewDateFormatter,
-    JewishCalendar,
-    JewishDate,
-    Options,
-    YerushalmiYomiCalculator,
-    YomiCalculator,
-    Zman,
-    Parsha
-} from "kosher-zmanim";
 import moment from "moment";
-// import ClockAnalog from "./ClockAnalog";
 import "../styles/ScreenKosherZmanim.scss";
+import ItemList from "./ItemList";
+
+const list_zmanim = [
+    { name: "עלות השחר", zmanim: "AlosHashachar" },
+    { name: "זריחה", zmanim: "Sunrise" },
+    { name: 'סוף זמן ק"ש מג"א', zmanim: "SofZmanShmaMGA" },
+    { name: 'סוף זמן ק"ש הגר"א', zmanim: "SofZmanShmaGRA" },
+    { name: 'סוף זמן תפילה מג"א', zmanim: "SofZmanTfilaMGA" },
+    { name: 'סוף זמן תפילה הגר"א', zmanim: "SofZmanTfilaGRA" },
+    { name: "בין השמשות (18 דקות) ", zmanim: "BainHasmashosYereim18Minutes" },
+    { name: "הדלקת נרות", zmanim: "CandleLighting" },
+    { name: "שקיעה", zmanim: "Sunset" },
+    { name: "צאת הכוכבים", zmanim: "TzaisGeonim4Point37Degrees" },
+    { name: 'את הכוכבים בעל התני"א', zmanim: "TzaisBaalHatanya" },
+    { name: 'צאת הכוכבים ר"ת', zmanim: "Tzais72" },
+
+]
 
 const ScreenKosherZmanim = () => {
     const myDate = new Date();
-    // myDate.setDate(myDate.getDate() + 2);
     const location = '32.074663';
     const jewishCalendar = new JewishCalendar(myDate);
-    // const jewishDate = new JewishDate(myDate);
     const hebrewDateFormatter = new HebrewDateFormatter();
-    // console.log(HebrewDateFormatter.hebrewDaysOfWeek);
-    // console.log(jewishCalendar.getDayOfWeek());
-    // console.log(">>> ", Daf);
-
     const hebcal = new Hebcal.HDate(myDate);
     hebcal.setLocation(+location.latitude, +location.longitude);
-
 
     const options = {
         date: myDate,
@@ -45,7 +40,9 @@ const ScreenKosherZmanim = () => {
     }
 
     const zmanim = getZmanimJson(options);
+
     const basicZmanim = zmanim.Zmanim;
+
     return (
         <div className='continer'>
             <div className='date_information'>
@@ -55,109 +52,12 @@ const ScreenKosherZmanim = () => {
                 <div className='date_information_text'>
                     פרשת {hebcal.getSedra('h')}
                 </div>
-                {/* <div>
-                    <ClockAnalog />
-                </div> */}
             </div>
-            {/* <SpinnerOnly />  */}
-
             <div className='list_of_zmanim'>
-                <div className='list_item'>
-                    <div className='item_time'>
-                        {moment(new Date(basicZmanim.AlosHashachar)).format(' HH:mm:ss ')}
-                    </div>
-                    <div dir='auto' className='item_text'>
-                        עלות השחר:
-                    </div>
-                </div >
-                <div className='list_item'>
-                    <div className='item_time'>
-                        {moment(new Date(basicZmanim.Sunrise)).format(' HH:mm:ss ')}
-                    </div>
-                    <div dir='auto' className='item_text'>
-                        זריחה:
-                    </div>
-                </div >
-                <div className='list_item'>
-                    <div className='item_time'>
-                        {moment(new Date(basicZmanim.SofZmanShmaMGA)).format(' HH:mm:ss ')}
-                    </div>
-                    <div dir='auto' className='item_text'>
-                        סוף זמן שמע מג"א:
-                    </div>
-                </div >
-                <div className='list_item'>
-                    <div className='item_time'>
-                        {moment(new Date(basicZmanim.SofZmanShmaGRA)).format(' HH:mm:ss ')}
-                    </div>
-                    <div dir='auto' className='item_text'>
-                        סוף זמן שמע גר"א/בעל התניא:
-                    </div>
-                </div >
-                <div className='list_item'>
-                    <div className='item_time'>
-                        {moment(new Date(basicZmanim.SofZmanTfilaMGA)).format(' HH:mm:ss ')}
-                    </div>
-                    <div dir='auto' className='item_text'>
-                        סוף זמן תפילה מג"א:
-                    </div>
-                </div >
-                <div className='list_item'>
-                    <div className='item_time'>
-                        {moment(new Date(basicZmanim.SofZmanTfilaGRA)).format(' HH:mm:ss ')}
-                    </div>
-                    <div dir='auto' className='item_text'>
-                        סוף זמן תפלה בעל התניא /גר"א:
-                    </div>
-                </div >
-                <div className='list_item'>
-                    <div className='item_time'>
-                        {moment(new Date(basicZmanim.BainHasmashosYereim18Minutes)).format(' HH:mm:ss ')}
-                    </div>
-                    <div dir='auto' className='item_text'>
-                        בין השמשות (18 דקות):
-                    </div>
-                </div >
-                {jewishCalendar.getDayOfWeek() == 6 && <div className='list_item'>
-                    <div className='item_time'>
-                        {moment(new Date(basicZmanim.CandleLighting)).format(' HH:mm:ss ')}
-                    </div>
-                    <div dir='auto' className='item_text'>
-                        הדלקת נרות:
-                    </div>
-                </div >}
-                <div className='list_item'>
-                    <div className='item_time'>
-                        {moment(new Date(basicZmanim.Sunset)).format(' HH:mm:ss ')}
-                    </div>
-                    <div dir='auto' className='item_text'>
-                        שקיעת החמה:
-                    </div>
-                </div >
-                <div className='list_item'>
-                    <div className='item_time'>
-                        {moment(new Date(basicZmanim.TzaisGeonim4Point37Degrees)).format(' HH:mm:ss ')}
-                    </div>
-                    <div dir='auto' className='item_text'>
-                        צאת הכוכבים גאונים (4 נקודות 7 מעלות):
-                    </div>
-                </div >
-                <div className='list_item'>
-                    <div className='item_time'>
-                        {moment(new Date(basicZmanim.TzaisBaalHatanya)).format(' HH:mm:ss ')}
-                    </div>
-                    <div dir='auto' className='item_text'>
-                        צאת הכוכבים בעל התניא:
-                    </div>
-                </div >
-                <div className='list_item'>
-                    <div className='item_time'>
-                        {moment(new Date(basicZmanim.Tzais72)).format(' HH:mm:ss ')}
-                    </div>
-                    <div dir='auto' className='item_text'>
-                        צאת הכוכבים ר"ת (72):
-                    </div>
-                </div >
+                {list_zmanim.map(({ name, zmanim }) => (
+                    <ItemList name={name} zmanim={moment(new Date(basicZmanim[zmanim])).format(' HH:mm:ss ')} />)
+                )}
+
                 <div className='list_item'>
                     <div class="w-50 text-center">
                         {hebcal.dafyomi('h')}
@@ -166,12 +66,7 @@ const ScreenKosherZmanim = () => {
                         דף יומי:
                     </div>
                 </div >
-                <div class="w-100 center-all">
-
-
-                </div>
-
-            </div >
+            </div>
         </div >
     )
 }

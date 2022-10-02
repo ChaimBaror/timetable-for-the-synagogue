@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-const Error404Page = React.lazy(() => import('../../pages/Error404Page'));
-const HomePage = React.lazy(() => import('../../pages/HomePage'));
-const SelectPlace = React.lazy(() => import('../../pages/SelectPlace'));
+const Error404Page = React.lazy(() => import('../pages/Error404Page'));
+const HomePage = React.lazy(() => import('../pages/HomePage'));
+const SelectPlace = React.lazy(() => import('../pages/SelectPlace'));
 
 // const Logout = React.lazy(() => import('./Logout'));
 
