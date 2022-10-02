@@ -55,14 +55,14 @@ const ScreenKosherZmanim = () => {
             </div>
             <div className='list_of_zmanim'>
                 {list_zmanim.map(({ name, zmanim }) => (
-                    <ItemList name={name} zmanim={moment(new Date(basicZmanim[zmanim])).format(' HH:mm:ss ')} />)
+                    <ItemList key={name} name={name} zmanim={moment(new Date(basicZmanim[zmanim])).format(' HH:mm:ss ')} />)
                 )}
 
                 <div className='list_item'>
                     <div class="w-50 text-center">
                         {hebcal.dafyomi('h')}
                     </div>
-                    <div dir='auto' class="w-50 text-rigth">
+                    <div dir='auto' className="w-50 text-rigth">
                         דף יומי:
                     </div>
                 </div >
