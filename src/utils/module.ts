@@ -1,4 +1,4 @@
-// export const moduleZmanim =[
+export const moduleZmanim =[
 //  Alos16Point1Degrees
 // : 
 // Alos18Degrees
@@ -471,4 +471,4 @@
 // TzaisGeonim9Point75Degrees
 // : 
 // "2022-10-02T19:17:39+03:00"
-// ]
+]
