@@ -6,6 +6,8 @@ export const list_zmanim = [
     { name: 'סוף זמן ק"ש הגר"א', zmanim: "SofZmanShmaGRA" },
     { name: 'סוף זמן תפילה מג"א', zmanim: "SofZmanTfilaMGA" },
     { name: 'סוף זמן תפילה הגר"א', zmanim: "SofZmanTfilaGRA" },
+    { name: 'מנחה קטנה', zmanim: "MinchaKetana" },
+    { name: 'פלג המנחה', zmanim: "PlagHamincha" },
     { name: "בין השמשות (18 דקות) ", zmanim: "BainHasmashosYereim18Minutes" },
     { name: "הדלקת נרות", zmanim: "CandleLighting" },
     { name: "שקיעה", zmanim: "Sunset" },
@@ -120,13 +122,10 @@ export const moduleZmanim =[
 // : 
 // MinchaKetanaBaalHatanya
 // : 
-// "2022-10-02T16:09:50+03:00"
 // Misheyakir7Point65Degrees
 // : 
-// "2022-10-02T06:13:54+03:00"
 // Misheyakir9Point5Degrees
 // : 
-// "2022-10-02T06:05:10+03:00"
 // Misheyakir10Point2Degrees
 // : 
 // "2022-10-02T06:01:51+03:00"
@@ -156,19 +155,14 @@ export const moduleZmanim =[
 // "2022-10-02T18:32:39+03:00"
 // PlagHamincha26Degrees
 // : 
-// "2022-10-02T18:56:11+03:00"
 // PlagHamincha60Minutes
 // : 
-// "2022-10-02T18:09:10+03:00"
 // PlagHamincha72Minutes
 // : 
-// "2022-10-02T18:18:40+03:00"
 // PlagHamincha72MinutesZmanis
 // : 
-// "2022-10-02T18:17:50+03:00"
 // PlagHamincha90Minutes
 // : 
-// "2022-10-02T18:32:55+03:00"
 // PlagHamincha90MinutesZmanis
 // : 
 // "2022-10-02T18:31:53+03:00"
@@ -237,16 +231,12 @@ export const moduleZmanim =[
 // "PT1H18M49.711S"
 // ShaahZmanisAteretTorah
 // : 
-// "PT1H8M22.011S"
 // ShaahZmanisBaalHatanya
 // : 
-// "PT59M42.731S"
 // ShaahZmanisGra
 // : 
-// "PT59M7.283S"
 // ShaahZmanisMGA
 // : 
-// "PT1H11M7.283S"
 // SofZmanAchilasChametzBaalHatanya
 // : 
 // "2022-10-02T10:41:25+03:00"
