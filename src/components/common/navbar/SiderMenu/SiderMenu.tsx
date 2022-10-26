@@ -1,61 +1,40 @@
 import React from 'react';
-// import { useTranslation } from 'react-i18next';
-import { Link, useLocation } from 'react-router-dom';
-import * as S from './SiderMenu.styles';
-import { sidebarNavigation, SidebarNavigationItem } from '../sidebarNavigation';
-import { Menu } from 'antd';
+import { Link } from 'react-router-dom';
+import { sidebarNavigation, SidebarNavigationItem } from '../../../../router/sidebarNavigation';
+import { Sidebar, Menu, MenuItem, SubMenu , useProSidebar } from 'react-pro-sidebar';
 
-interface SiderContentProps {
-  setCollapsed: (isCollapsed: boolean) => void;
-}
 
-const sidebarNavFlat = sidebarNavigation.reduce(
-  (result: SidebarNavigationItem[], current) =>
-    result.concat(current.children && current.children.length > 0 ? current.children : current),
-  [],
-);
+const SiderMenu: React.FC = () => {
 
-const SiderMenu: React.FC<SiderContentProps> = ({ setCollapsed }) => {
-  // const { t } = useTranslation();
-  const location = useLocation();
-
-  const currentMenuItem = sidebarNavFlat.find(({ url }) => url === location.pathname);
-  const defaultSelectedKeys = currentMenuItem ? [currentMenuItem.key] : [];
-
-  const openedSubmenu = sidebarNavigation.find(({ children }) =>
-    children?.some(({ url }) => url === location.pathname),
-  );
-  const defaultOpenKeys = openedSubmenu ? [openedSubmenu.key] : [];
+  const { collapseSidebar } = useProSidebar();
 
   return (
-    <S.Menu
-      mode="inline"
-      defaultSelectedKeys={defaultSelectedKeys}
-      defaultOpenKeys={defaultOpenKeys}
-      onClick={() => setCollapsed(true)}
-    >
-      {sidebarNavigation.map((nav) =>
-        nav.children && nav.children.length > 0 ? (
-          <Menu.SubMenu
-            key={nav.key}
-            title={nav.title}
-            icon={nav.icon}
-            onTitleClick={() => setCollapsed(false)}
-            popupClassName="d-none"
-          >
-            {nav.children.map((childNav) => (
-              <Menu.Item key={childNav.key} title="">
-                <Link to={childNav.url || ''}>{childNav.title}</Link>
-              </Menu.Item>
-            ))}
-          </Menu.SubMenu>
-        ) : (
-          <Menu.Item key={nav.key} title="" icon={nav.icon}>
-            <Link to={nav.url || ''}>{nav.title}</Link>
-          </Menu.Item>
-        ),
-      )}
-    </S.Menu>
+    <>
+    <Sidebar>
+    <button onClick={() => collapseSidebar()}>Collapse</button>
+      <Menu>
+        {sidebarNavigation.map((nav) =>
+          nav.children && !!nav.children.length ? (
+            <SubMenu
+              key={nav.key}
+              title={nav.title}
+              icon={nav.icon}
+              label={nav.title}
+            >
+              {nav.children.map((childNav) => (
+                <MenuItem key={childNav.key} title="">
+                  <Link to={childNav.url || ''}>{childNav.title}</Link>
+                </MenuItem>
+              ))}
+            </SubMenu>
+          ) : (
+            <MenuItem key={nav.key} title="" icon={nav.icon}>
+              <Link to={nav.url || ''}>{nav.title}</Link>
+            </MenuItem>
+          ))}
+      </Menu>
+    </Sidebar>
+    </>
   );
 };
 

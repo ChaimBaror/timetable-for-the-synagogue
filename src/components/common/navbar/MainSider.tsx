@@ -1,9 +1,11 @@
 import React, { useMemo } from 'react';
+import { Outlet } from 'react-router-dom';
 // import Overlay from '../../../../common/Overlay';
 // import { useResponsive } from 'hooks/useResponsive';
 import * as S from './MainSider.styles';
 // import { SiderLogo } from '../SiderLogo';
 import SiderMenu from './SiderMenu/SiderMenu';
+import '../../../styles/NavbarHeader.scss'
 
 interface MainSiderProps {
   isCollapsed: boolean;
@@ -11,14 +13,9 @@ interface MainSiderProps {
 }
 
 const MainSider: React.FC<MainSiderProps> = ({ isCollapsed, setCollapsed, ...props }) => {
-  // const { isDesktop, mobileOnly, tabletOnly } = useResponsive();
-
-  // const isCollapsible = useMemo(() => mobileOnly && tabletOnly, [mobileOnly, tabletOnly]);
-
-  const toggleSider = () => setCollapsed(!isCollapsed);
 
   return (
-    <>
+    <div className='Sider'>
       <S.Sider
         trigger={null}
         collapsed={ isCollapsed}
@@ -28,11 +25,12 @@ const MainSider: React.FC<MainSiderProps> = ({ isCollapsed, setCollapsed, ...pro
         {...props}
       >
         {/* <SiderLogo isSiderCollapsed={isCollapsed} toggleSider={toggleSider} /> */}
-        <S.SiderContent>
-          <SiderMenu setCollapsed={setCollapsed} />
+        <S.SiderContent  className='sideBar'>
+          <SiderMenu  />
         </S.SiderContent>
       </S.Sider>
-    </>
+  
+    </div>
   );
 };
 

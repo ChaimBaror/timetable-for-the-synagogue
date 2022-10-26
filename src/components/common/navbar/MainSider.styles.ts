@@ -51,13 +51,13 @@ export const CollapseButton = styled(Button)<{ $isCollapsed: boolean }>`
 `;
 
 export const SiderContent = styled.div`
-  overflow-y: auto;
-  overflow-x: hidden;
-  max-height: calc(100vh - ${LAYOUT.mobile.headerHeight});
+  // overflow-y: auto;
+  // overflow-x: hidden;
+  // max-height: calc(100vh - ${LAYOUT.mobile.headerHeight});
 
-  @media only screen and ${media.md} {
-    max-height: calc(100vh - ${LAYOUT.desktop.headerHeight});
-  }
+  // @media only screen and ${media.md} {
+  //   max-height: calc(100vh - ${LAYOUT.desktop.headerHeight});
+  // }
 `;
 
 export const SiderLogoLink = styled(Link)`
