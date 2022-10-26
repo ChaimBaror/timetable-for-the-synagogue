@@ -21,7 +21,7 @@ const HebcalZmanim = () => {
                     <div dir='auto' className="w-50 text-rigth">
                         דף יומי:
                     </div>
-                    <div class="w-50 text-center">
+                    <div className="w-50 text-center">
                         {hebcal.dafyomi('h')}
                     </div>
                 </div >
