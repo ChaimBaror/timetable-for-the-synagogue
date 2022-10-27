@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { sidebarNavigation, SidebarNavigationItem } from '../../../../router/sidebarNavigation';
+import { sidebarNavigation } from '../../../../router/sidebarNavigation';
 import { Sidebar, Menu, MenuItem, SubMenu , useProSidebar } from 'react-pro-sidebar';
 
 
