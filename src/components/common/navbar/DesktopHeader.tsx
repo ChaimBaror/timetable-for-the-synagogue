@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeaderFullscreen } from '../../HeaderFullscreen/HeaderFullscreen';
+import { HeaderFullscreen } from '../HeaderFullscreen/HeaderFullscreen';
 import '../../../styles/NavbarHeader.scss'
 
 
