@@ -5,9 +5,21 @@ import moment from "moment";
 
 const HebcalZmanim = () => {
     const myDate = new Date();
-    const location = '32.074663';
+    const Latitude= 32.0833;
+    const Longitude= 34.8333;
     const hebcal = new Hebcal.HDate(myDate);
-    hebcal.setLocation(+location.latitude, +location.longitude);
+    hebcal.setCity('bnei brak');
+    hebcal.setLocation(Latitude, Longitude);
+    // var year = new Hebcal();
+    // year.setCity('Jerusalem');
+    // let Zemanim = hebcal.getZemanim("h");
+    // Zemanim.setCity('Jerusalem');
+    // Zemanim.setLocation(Latitude, Longitude);
+     let Zemanim = hebcal.getZemanim('h')
+
+    console.log("hebcal :" ,hebcal.getYearObject("h"));
+
+
     return (
         <div>
             <div className='date_information'>

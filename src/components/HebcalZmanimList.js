@@ -2,7 +2,7 @@ import React from 'react'
 import Hebcal from "hebcal";
 import { hebcal_list } from '../utils/module';
 import moment from "moment";
-import ItemList from './ItemList';
+import ItemList from './common/list/ItemList';
 
 export const HebcalZmanimList = () => {
     let city = 'bnei brak';

@@ -3,22 +3,23 @@ import { getZmanimJson, HebrewDateFormatter, JewishCalendar, } from "kosher-zman
 import Hebcal from "hebcal";
 import moment from "moment";
 import "../styles/ScreenKosherZmanim.scss";
-import ItemList from "./ItemList";
+import ItemList from "./common/list/ItemList";
 import { list_zmanim, list_zmanim_Tfila } from '../utils/module'
 
 
 const ScreenKosherZmanim = () => {
     const myDate = new Date();
-    const location = '32.074663';
+    const Latitude= 32.0833;
+    const Longitude= 34.8333;
     const jewishCalendar = new JewishCalendar(myDate);
     const hebrewDateFormatter = new HebrewDateFormatter();
     const hebcal = new Hebcal.HDate(myDate);
-    hebcal.setLocation(+location.latitude, +location.longitude);
+    hebcal.setLocation(Latitude, Longitude);
 
     const options = {
         date: myDate,
-        latitude: location,
-        longitude: location,
+        latitude: Latitude,
+        longitude: Longitude,
         complexZmanim: true,
         timeZoneId: "Asia/Jerusalem",
         locationName: "Asia/Jerusalem",

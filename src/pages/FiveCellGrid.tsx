@@ -1,6 +1,6 @@
 import React from 'react'
 import ClockAnalog from '../components/ClockAnalog'
-import ItemList from '../components/ItemList'
+import ItemList from '../components/common/list/ItemList'
 import ScreenKosherZmanim from '../components/ScreenKosherZmanim'
 import { list_zmanim_Tfila } from '../utils/module'
 import "../styles/ScreenKosherZmanim.scss";
