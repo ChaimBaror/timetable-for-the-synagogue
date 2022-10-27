@@ -11,12 +11,14 @@ export interface SidebarNavigationItem {
 
 export const sidebarNavigation: SidebarNavigationItem[] = [
   { title: 'dashboard', key: 'nft-dashboard', url: '/', icon: <FormOutlined />, },
-  { title: 'medical-dashboard', key: 'medical-dashboard', url: '/medical-dashboard', icon: <DashboardOutlined /> },
+  { title: 'medical-dashboard', key: 'medical-dashboard', url: '/dashboard', icon: <DashboardOutlined /> },
   {
     title: 'apps', key: 'apps', icon: <HomeOutlined />,
     children: [
-      { title: 'feed', key: 'feed' },
-      { title: 'kanban', key: 'kanban', },
+      { title: 'feed', key: 'feed', url: '/' },
+      { title: 'Hebcal', key: 'kanban', url: '/HebcalZmanim' },
+      { title: 'dashboard', key: 'kanban', url: '/dashboard' },
+
     ],
   },
   {
