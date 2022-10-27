@@ -10,10 +10,10 @@ export interface SidebarNavigationItem {
 }
 
 export const sidebarNavigation: SidebarNavigationItem[] = [
-  { title: 'dashboard', key: 'nft-dashboard', url: '/', icon: <FormOutlined />, },
+  { title: 'dashboard', key: 'nft-dashboard', url: '/', icon: <HomeOutlined />, },
   { title: 'medical-dashboard', key: 'medical-dashboard', url: '/dashboard', icon: <DashboardOutlined /> },
   {
-    title: 'apps', key: 'apps', icon: <HomeOutlined />,
+    title: 'template', key: 'apps', icon: <LayoutOutlined />,
     children: [
       { title: 'feed', key: 'feed', url: '/' },
       { title: 'Hebcal', key: 'kanban', url: '/HebcalZmanim' },
