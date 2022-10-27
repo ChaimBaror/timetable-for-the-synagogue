@@ -30,8 +30,8 @@ export const AppRouter: React.FC = () => {
       <Routes >
         <Route path="/" element={protectedLayout}>
           <Route index element={<HomePage />} />
-          <Route path="/medical-dashboard" element={<FiveCellGrid />} />
-          <Route path="/apps/feed" element={<SelectPlace />} />
+          <Route path="/dashboard" element={<FiveCellGrid />} />
+          <Route path="/HebcalZmanim" element={<SelectPlace />} />
           <Route path="/404" element={<Error404Page />} />
         </Route>
       </Routes>
