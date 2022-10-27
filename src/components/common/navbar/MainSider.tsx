@@ -6,6 +6,7 @@ import * as S from './MainSider.styles';
 // import { SiderLogo } from '../SiderLogo';
 import SiderMenu from './SiderMenu/SiderMenu';
 import '../../../styles/NavbarHeader.scss'
+import { ProSidebarProvider } from 'react-pro-sidebar';
 
 interface MainSiderProps {
   isCollapsed: boolean;
@@ -16,20 +17,22 @@ const MainSider: React.FC<MainSiderProps> = ({ isCollapsed, setCollapsed, ...pro
 
   return (
     <div className='Sider'>
-      <S.Sider
-        trigger={null}
-        collapsed={ isCollapsed}
-        collapsedWidth={true ? 80 : 0}
-        collapsible={true}
-        width={260}
-        {...props}
-      >
-        {/* <SiderLogo isSiderCollapsed={isCollapsed} toggleSider={toggleSider} /> */}
-        <S.SiderContent  className='sideBar'>
-          <SiderMenu  />
-        </S.SiderContent>
-      </S.Sider>
-  
+      <ProSidebarProvider>
+        <S.Sider
+          trigger={null}
+          collapsed={isCollapsed}
+          collapsedWidth={true ? 80 : 0}
+          collapsible={true}
+          width={260}
+          {...props}
+        >
+          {/* <SiderLogo isSiderCollapsed={isCollapsed} toggleSider={toggleSider} /> */}
+          <S.SiderContent className='sideBar'>
+            <SiderMenu />
+          </S.SiderContent>
+        </S.Sider>
+      </ProSidebarProvider>
+
     </div>
   );
 };

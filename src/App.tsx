@@ -6,10 +6,9 @@ function App() {
 
   return (
     <>
-      <ProSidebarProvider>
+      {/* <ProSidebarProvider> */}
         <AppRouter />
-      </ProSidebarProvider>;
-
+      {/* </ProSidebarProvider>; */}
     </>
   );
 }

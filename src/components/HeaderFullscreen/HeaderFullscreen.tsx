@@ -10,10 +10,11 @@ export const HeaderFullscreen: React.FC = () => {
 
   useEffect(() => {
     rootRef.current = document.getElementById('Fullscreen');
+
   }, []);
 
   return (
-    <RequireFullscreen component={rootRef}>
+    <RequireFullscreen component={rootRef} >
       {(isFullscreen) => (
         <HeaderActionWrapper>
           <Button
