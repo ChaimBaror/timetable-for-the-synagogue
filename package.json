@@ -1,7 +1,7 @@
 {
   "name": "my-admin",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://chaimbaror.github.io/Timetable-for-the-synagogue",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
