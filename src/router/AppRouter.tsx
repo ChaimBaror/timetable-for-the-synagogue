@@ -26,7 +26,7 @@ export const AppRouter: React.FC = () => {
   );
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes >
         <Route path="/" element={protectedLayout}>
           <Route index element={<HomePage />} />

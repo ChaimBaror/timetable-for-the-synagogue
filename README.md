@@ -1,6 +1,6 @@
 
 
-## [Demo](https://chaimbaror.github.io/timetable-for-the-synagogue/index.html)
+## [Demo](https://chaimbaror.github.io/timetable-for-the-synagogue/)
 
 # Getting Started with Create React App
 
