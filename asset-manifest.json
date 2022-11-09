@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/timetable-for-the-synagogue/static/css/main.644ea5b1.css",
-    "main.js": "/timetable-for-the-synagogue/static/js/main.3cb07e89.js",
+    "main.css": "/timetable-for-the-synagogue/static/css/main.aafc31ed.css",
+    "main.js": "/timetable-for-the-synagogue/static/js/main.6d5b0830.js",
     "static/js/787.61e0603b.chunk.js": "/timetable-for-the-synagogue/static/js/787.61e0603b.chunk.js",
     "index.html": "/timetable-for-the-synagogue/index.html",
-    "main.644ea5b1.css.map": "/timetable-for-the-synagogue/static/css/main.644ea5b1.css.map",
-    "main.3cb07e89.js.map": "/timetable-for-the-synagogue/static/js/main.3cb07e89.js.map",
+    "main.aafc31ed.css.map": "/timetable-for-the-synagogue/static/css/main.aafc31ed.css.map",
+    "main.6d5b0830.js.map": "/timetable-for-the-synagogue/static/js/main.6d5b0830.js.map",
     "787.61e0603b.chunk.js.map": "/timetable-for-the-synagogue/static/js/787.61e0603b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.644ea5b1.css",
-    "static/js/main.3cb07e89.js"
+    "static/css/main.aafc31ed.css",
+    "static/js/main.6d5b0830.js"
   ]
 }
