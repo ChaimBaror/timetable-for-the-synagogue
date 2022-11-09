@@ -31,3 +31,66 @@
         }
     }
 }
+
+.footer {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    margin: 0 auto;
+    background: #077;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 3px 3px 6px rgb(0 0 0 / 20%), -3px -3px 6px rgb(255 255 255);
+}
+
+.loop {
+    width: max-content;
+    font-size: xx-large;
+    color: rgb(200, 217, 48);
+    font-weight: bolder;
+    text-align: left;
+    // font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.marquee-section {
+    position: relative;
+    min-height: 82px;
+}
+
+.marquee-section,
+.marquee-section * {
+    overflow: hidden;
+}
+
+.marquee {
+    white-space: nowrap;
+}
+
+.marquee-div {
+    position: absolute;
+    animation: move-left-to-right linear 24.5s infinite;
+}
+
+/* use this one to move from left to right direction */
+@keyframes move-left-to-right {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* use this one to move from right to left direction */
+@keyframes move-right-to-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
