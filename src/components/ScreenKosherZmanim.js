@@ -5,12 +5,15 @@ import moment from "moment";
 import "../styles/ScreenKosherZmanim.scss";
 import ItemList from "./common/list/ItemList";
 import { list_zmanim, list_zmanim_Tfila } from '../utils/module'
+import { useSelector } from "react-redux";
 
 
 const ScreenKosherZmanim = () => {
+    const { location } = useSelector(state => state)
+
     const myDate = new Date();
-    const Latitude= 32.0833;
-    const Longitude= 34.8333;
+    const Latitude = location.Latitude;
+    const Longitude = location.Longitude;
     const jewishCalendar = new JewishCalendar(myDate);
     const hebrewDateFormatter = new HebrewDateFormatter();
     const hebcal = new Hebcal.HDate(myDate);

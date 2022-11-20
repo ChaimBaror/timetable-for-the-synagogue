@@ -1,0 +1,15 @@
+export const locations = {
+  "beni Brak": { Lat: 32.0833, Lng: 34.8333 },
+  Jerusalem: { Lat: 31.771959, Lng: 35.217018 },
+  beniBrak: { Lat: 32.0833, Lng: 34.8333 },
+  "Ra'anana": { Lat: 32.184448, Lng: 34.870766 },
+  Bethlehem: { Lat: 31.705791, Lng: 35.200657 },
+  Ashdod: { Lat: 31.801447, Lng: 34.643497 },
+  Nazareth: { Lat: 32.699635, Lng: 35.303547 },
+  "Bat Yam": { Lat: 32.017136, Lng: 34.745441 },
+  "Tel Aviv-Yafo": { Lat: 32.109333, Lng: 34.855499 },
+  Haifa: { Lat: 32.794044, Lng: 34.989571 },
+  Karmiel: { Lat: 32.919945, Lng: 35.290146 },
+  Herzliya: { Lat: 32.166313, Lng: 34.843311 },
+  Rehovot: { Lat: 31.894756, Lng: 34.809322 },
+};

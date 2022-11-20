@@ -2,22 +2,26 @@ import React from 'react'
 import Hebcal from "hebcal";
 import { HebrewDateFormatter, } from "kosher-zmanim";
 import moment from "moment";
+import { useSelector } from 'react-redux'
+import Select from './common/Select/select';
 
 const HebcalZmanim = () => {
+    const { location } = useSelector(state => state)
+ 
     const myDate = new Date();
-    const Latitude= 32.0833;
-    const Longitude= 34.8333;
+    const Latitude = location.Latitude;
+    const Longitude = location.Longitude;
     const hebcal = new Hebcal.HDate(myDate);
-    hebcal.setCity('bnei brak');
+    hebcal.setCity(location.name);
     hebcal.setLocation(Latitude, Longitude);
     // var year = new Hebcal();
     // year.setCity('Jerusalem');
     // let Zemanim = hebcal.getZemanim("h");
     // Zemanim.setCity('Jerusalem');
     // Zemanim.setLocation(Latitude, Longitude);
-     let Zemanim = hebcal.getZemanim('h')
+    let Zemanim = hebcal.getZemanim('h')
 
-    console.log("hebcal :" ,hebcal.getYearObject("h"));
+    console.log("hebcal :", hebcal.getYearObject("h"));
 
 
     return (
