@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  react:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: react
+    volumes:
+      - ./src:/usr/src/app/src
+      -  react_node_modules:/usr/src/app/node_modules
+    ports:
+      - "3001:3000"
+    # restart: always
+    command: bash -c "npm i && npm run start"
+
+
+volumes:
+  react_node_modules:
