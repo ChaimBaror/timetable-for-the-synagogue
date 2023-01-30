@@ -1,0 +1,121 @@
+.fullBoard {
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(#ccf, #88f, #33f);
+}
+
+.flex {
+    text-align: center;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+}
+
+.title {
+    padding: 10px;
+    font-size: larger;
+}
+
+.windo {
+    padding: 5px;
+    background-color: aliceblue;
+    border: 1px blue solid;
+    width: 200px;
+    height: 50px;
+}
+
+.boxSub {
+    width: 200px;
+    padding: 5px;
+    font-size: 40px;
+    background-color: #ddd;
+    border: 15px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 3px 0px 4px #555, -3px 0px 4px #555, inset 0 0 4px #555;
+}
+
+.logo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    .circle-logo {
+        width: 200px;
+        height: 200px;
+        border: 30px solid #ddd;
+        border-radius: 50%;
+        box-shadow: 0px 0px 10px #000, inset 0px 0px 10px #000;
+    }
+
+    .box-logo {
+        right: 50%;
+        position: relative;
+        margin-left: -72%;
+        width: max-content;
+        padding: 10px 20px;
+        background-color: #ddd;
+        border: 20px solid #ddd;
+        border-radius: 20px;
+        box-shadow: 3px 0px 4px #555, -3px 0px 4px #555, inset 0 0 4px #555;
+    }
+
+}
+
+// .circle {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     width: 550px;
+//     height: 550px;
+//     border: 50px solid #ddd;
+//     border-radius: 50%;
+//     box-shadow: 0px 0px 10px #000, inset 0px 0px 10px #000;
+// }
+
+// @media (max-width: 768px) {
+//     .circle {
+//         width: 250px;
+//         height: 250px;
+//         border-width: 20px;
+//     }
+// }
+
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 82%;
+    padding: 10px 20px;
+    background-color: #ddd;
+    border: 20px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 3px 0px 4px #555, -3px 0px 4px #555, inset 0 0 4px #555;
+}
+
+@media (max-width: 768px) {
+    .box {
+        border: 10px solid #ddd;
+    }
+}
+
+.shadow {
+    background-color: #333;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    background-blend-mode: lighten;
+    color: transparent;
+    font-size: 60px;
+    text-shadow: rgba(255, 255, 255, 1) 2px 3px 6px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .shadow {
+        font-size: 24px;
+    }
+}
