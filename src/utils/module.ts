@@ -40,6 +40,16 @@ export const list_zmanim_Tfila = [
 
 ]
 
+export const list_zmanim_Tfila_on_shbatt = [
+    { name: 'מנחה ערב שבת', zmanim: "18:00" },
+    { name: 'ערבית', zmanim: "19:00" },
+    { name: "שחרית", zmanim: "8:00" },
+    { name: "מנחה", zmanim: "13:15" },
+    { name: 'ערבית צאת שבת', zmanim: "19:00" },
+
+
+]
+
 
 export const moduleZmanim = [
     //  Alos16Point1Degrees

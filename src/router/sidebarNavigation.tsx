@@ -15,8 +15,9 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
   {
     title: 'template', key: 'apps', icon: <LayoutOutlined />,
     children: [
-      { title: 'feed', key: 'feed', url: '/' },
-      { title: 'Hebcal', key: 'kanban', url: '/HebcalZmanim' },
+      { title: 'template', key: 'template', url: '/template' },
+      { title: 'board-template', key: 'feed', url: '/' },
+      { title: 'Hebcal', key: 'Hebcal', url: '/HebcalZmanim' },
       { title: 'dashboard', key: 'kanban', url: '/dashboard' },
 
     ],
