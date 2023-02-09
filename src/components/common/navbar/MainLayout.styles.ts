@@ -16,7 +16,7 @@ export const LayoutMain = styled(Layout)`
   }
 
   @media only screen and ${media.xl} {
-    margin-left: unset;
+    // margin-left: unset;
     background-color: rgba(242, 220, 172, 0.851);
 
 

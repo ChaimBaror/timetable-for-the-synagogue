@@ -5,8 +5,10 @@ import { Col, Collapse, Menu } from 'antd';
 import { BORDER_RADIUS, LAYOUT, media } from '../../../styles/themes/constants';
 
 export const DropdownMenu = styled(Menu)`
+  position: flexd;
   line-height: 1.5715;
-
+  z-index: 999;
+  display: flex;
   border-radius: ${BORDER_RADIUS};
 
   &.ant-dropdown-menu {
@@ -16,12 +18,14 @@ export const DropdownMenu = styled(Menu)`
 
 export const HeaderActionWrapper = styled.div`
   cursor: pointer;
-  
-
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 600;
+  width: auto;
+  padding: 0 10px;
   & > .ant-btn > span[role='img'],
   .ant-badge {
     font-size: 1.25rem;
-
     @media only screen and ${media.md} {
       font-size: 1.625rem;
     }

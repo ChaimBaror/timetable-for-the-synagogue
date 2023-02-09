@@ -30,8 +30,8 @@ export const AppRouter: React.FC = () => {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes >
         <Route path="/" element={protectedLayout}>
-          <Route index element={<FiveCellGrid/>} />
-          <Route path="/dashboard" element={<FullBoard />} />
+          <Route index element={< FullBoard />} />
+          <Route path="/dashboard" element={<FiveCellGrid />} />
           <Route path="/template" element={<HomePage />} />
           <Route path="/HebcalZmanim" element={<SelectPlace />} />
           <Route path="/404" element={<Error404Page />} />

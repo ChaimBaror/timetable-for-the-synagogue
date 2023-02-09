@@ -2,14 +2,14 @@ import { log } from "console";
 import React, { Children, useEffect, useState } from "react";
 import { render } from "react-dom";
 import { Rnd } from "react-rnd";
-
+import * as S from './Draggable.style'
 type Props = {
     width?: any,
     height?: any,
     x?: any,
     y?: any,
+    className?: string,
     children: JSX.Element,
-
 };
 
 // const style = {
@@ -20,7 +20,7 @@ type Props = {
 //     background: "#f0f0f0"
 // };
 
-const Draggable: React.FC<Props> = ({ width, height, x = 10, y = 10, children }) => {
+const Draggable: React.FC<Props> = ({ width, height, x = 10, y = 10, children, className }) => {
     const [size, setSize] = useState({ width: width, height: height });
     const [position, setPosition] = useState({ x: x, y: y });
 
@@ -32,26 +32,30 @@ const Draggable: React.FC<Props> = ({ width, height, x = 10, y = 10, children })
 
 
     return (
-        <Rnd
-            // style={style}
-            dragGrid={[1, 1]}
-            resizeGrid={[1, 1]}
-            size={{ width: size.width, height: size.height }}
-            position={{ x: position.x, y: position.y }}
-            onDragStop={(e, d) => {
-                setPosition({ ...position, x: d.x, y: d.y });
-            }}
-            onResizeStop={(e, direction, ref, delta, position) => {
-                setSize({
-                    ...size,
-                    width: +ref.style.width,
-                    height: +ref.style.height,
-                    ...position
-                });
-            }}
-        >
-            {children}
-        </Rnd>
+        <S.Wrapper>
+            <Rnd
+                // style={style}
+                className={`${className} divdnd`}
+                dragGrid={[6, 6]}
+                resizeGrid={[3, 3]}
+                size={{ width: size.width, height: size.height }}
+                position={{ x: position.x, y: position.y }}
+                onDragStop={(e, d) => {
+                    setPosition({ ...position, x: d.x, y: d.y });
+                }}
+                onResizeStop={(e, direction, ref, delta, position) => {
+                    setSize({
+                        ...size,
+                        width: +ref.style.width,
+                        height: +ref.style.height,
+                        ...position
+                    });
+                }}>
+                <>
+                    {children}
+                </>
+            </Rnd>
+        </S.Wrapper>
 
     )
 

@@ -3,12 +3,18 @@ import Hebcal from "hebcal";
 import { hebcal_list } from '../utils/module';
 import moment from "moment";
 import ItemList from './common/list/ItemList';
+import { useSelector } from 'react-redux';
+import Selectlocations from './common/Select/selectlocations';
 
 export const HebcalZmanimList = () => {
-    let city = 'bnei brak';
+
+    const { location } = useSelector(state => state)
+
+
+    const city = location.name;
     const myDate = new Date();
-    const Latitude = 32.0833;
-    const Longitude = 34.8333;
+    const Latitude = location.Latitude;
+    const Longitude = location.Longitude;
     const hebcal = new Hebcal.HDate(myDate);
     hebcal.setCity(city);
     hebcal.setLocation(Latitude, Longitude);

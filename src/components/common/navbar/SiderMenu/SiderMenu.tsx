@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { sidebarNavigation } from '../../../../router/sidebarNavigation';
 import { Sidebar, Menu, MenuItem, SubMenu, useProSidebar } from 'react-pro-sidebar';
+import Selectlocations from '../../Select/selectlocations';
+import { EnvironmentOutlined } from '@ant-design/icons';
 
 
 const SiderMenu: React.FC = () => {
@@ -16,6 +18,16 @@ const SiderMenu: React.FC = () => {
       <Sidebar>
         {/* <button onClick={() => collapseSidebar()}>Collapse</button> */}
         <Menu>
+          <SubMenu
+            key={"locations"}
+            title={"locations"}
+            icon={<EnvironmentOutlined />}
+            label={"locations"}
+          >
+            <MenuItem title="locations" >
+              <Selectlocations></Selectlocations>
+            </MenuItem>
+          </SubMenu>
           {sidebarNavigation.map((nav) =>
             nav.children && !!nav.children.length ? (
               <SubMenu

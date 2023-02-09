@@ -5,7 +5,7 @@ const Clock: React.FC = () => {
     const [newTime, setNewTime] = useState('');
 
     const displayClock = () => {
-        const display = new Date().toLocaleTimeString();
+        const display = new Date().toLocaleTimeString('en-GB');
         setNewTime(display);
     }
     setTimeout(displayClock, 1000);
