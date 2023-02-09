@@ -14,11 +14,7 @@ const HebcalZmanim = () => {
     const hebcal = new Hebcal.HDate(myDate);
     hebcal.setCity(location.name);
     hebcal.setLocation(Latitude, Longitude);
-    // var year = new Hebcal();
-    // year.setCity('Jerusalem');
-    // let Zemanim = hebcal.getZemanim("h");
-    // Zemanim.setCity('Jerusalem');
-    // Zemanim.setLocation(Latitude, Longitude);
+
     let Zemanim = hebcal.getZemanim('h')
 
     console.log("hebcal :", hebcal.getYearObject("h"));

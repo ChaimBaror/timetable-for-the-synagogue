@@ -1,6 +1,6 @@
 {
   "name": "my-admin",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": false,
   "homepage": "https://chaimbaror.github.io/timetable-for-the-synagogue/",
   "dependencies": {
