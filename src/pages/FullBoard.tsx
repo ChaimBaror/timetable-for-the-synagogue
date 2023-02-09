@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Clock from '../components/Clock';
 import ClockAnalog from '../components/ClockAnalog';
 import Draggable from '../components/common/Draggable/Draggable';
@@ -10,18 +10,15 @@ export default function FullBoard() {
 
     return (
         <div className="fullBoard">
-
             <div className="box">
                 <div className='logo'>
                     <Draggable >
                         <HebcalZmanimList />
                     </Draggable>
                     <Draggable >
-
                         <Clock />
                     </Draggable>
                     <Draggable key={"0999"} >
-
                         <div className="circle-logo">
                             <div className="box-logo">
                                 <div className='shadow'> בית הכנסת סיני</div>
@@ -31,9 +28,7 @@ export default function FullBoard() {
                     <Draggable key={"0332"} >
                         <Clock />
                     </Draggable>
-
                 </div>
-
                 <Draggable key={"0932"} >
                     <>
                         <div className='title-zaman shadow '>זמני תפילה חול</div>

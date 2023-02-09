@@ -10,32 +10,25 @@ export interface SidebarNavigationItem {
 }
 
 export const sidebarNavigation: SidebarNavigationItem[] = [
-  { title: 'dashboard', key: 'nft-dashboard', url: '/', icon: <HomeOutlined />, },
-  { title: 'medic', key: 'medical1', url: '/dashboard', icon: <DashboardOutlined /> },
-  { title: 'medic', key: 'medical2', url: '/template', icon: <DashboardOutlined /> },
-  { title: 'medicaashboard', key: 'medical3', url: '/HebcalZmanim', icon: <DashboardOutlined /> },
-  { title: '-dashboard', key: 'medical4', url: '/', icon: <DashboardOutlined /> },
-  { title: 'medishboard', key: 'medical5', url: '/dashboard', icon: <DashboardOutlined /> },
-
+  { title: 'Home', key: 'Home', icon: <HomeOutlined />, },
   {
     title: 'template', key: 'apps', url: '/template', icon: <LayoutOutlined />,
     children: [
-      { title: 'template', key: 'template', url: '/template' },
-      { title: 'board-template', key: 'feed', url: '/' },
-      { title: 'Hebcal', key: 'Hebcal', url: '/HebcalZmanim' },
+      // { title: 'template', key: 'template', url: '/template' },
+      { title: 'board', key: 'board', url: '/' },
       { title: 'dashboard', key: 'kanban', url: '/dashboard' },
-
+      { title: 'Hebcal', key: 'Hebcal', url: '/HebcalZmanim' },
     ],
   },
-  {
-    title: 'maps', key: 'maps', icon: <CompassOutlined />,
-    children: [
-      { title: 'googleMap', key: 'google-maps' },
-      { title: 'leafletMap', key: 'leaflet-maps', },
-      { title: 'reactSimpleMaps', key: 'react-simple-maps' },
-      { title: 'pigeonMaps', key: 'pigeon-maps', },
-    ],
-  },
+  // {
+  //   title: 'maps', key: 'maps', icon: <CompassOutlined />,
+  //   children: [
+  //     { title: 'googleMap', key: 'google-maps' },
+  //     { title: 'leafletMap', key: 'leaflet-maps', },
+  //     { title: 'reactSimpleMaps', key: 'react-simple-maps' },
+  //     { title: 'pigeonMaps', key: 'pigeon-maps', },
+  //   ],
+  // },
   {
     title: 'pages', key: 'pages', icon: <LayoutOutlined />,
     children: [
@@ -44,7 +37,7 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
       { title: 'clientError', key: '404Error', url: '/404' },
     ],
   },
-  { title: 'dataTables', key: 'dataTables', icon: <TableOutlined /> },
-  { title: 'charts', key: 'charts', icon: <LineChartOutlined /> },
-  { title: '.ui', key: 'ui', icon: <BlockOutlined /> },
+  // { title: 'dataTables', key: 'dataTables', icon: <TableOutlined /> },
+  // { title: 'charts', key: 'charts', icon: <LineChartOutlined /> },
+  // { title: '.ui', key: 'ui', icon: <BlockOutlined /> },
 ];

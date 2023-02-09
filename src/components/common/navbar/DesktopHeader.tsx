@@ -1,17 +1,31 @@
 import React from 'react';
 import { HeaderFullscreen } from '../../HeaderFullscreen/HeaderFullscreen';
-import '../../../styles/NavbarHeader.scss'
-
+import * as S from './Header.styles'
+import { useSelector } from 'react-redux'
+import { GetZmanHebcal } from '../../GetZmanHebcal';
 
 interface DesktopHeaderProps {
   isTwoColumnsLayout: boolean;
 }
 
 export const DesktopHeader: React.FC<DesktopHeaderProps> = ({ isTwoColumnsLayout }) => {
+  const location = useSelector((state: any) => state.location)
+
 
   return (
-    <div className='navbarHeader'>
-      <HeaderFullscreen />
-    </div>
+    <S.DropdownMenu>
+      <S.DropdownCollapse>
+        <S.HeaderActionWrapper>
+          <HeaderFullscreen />
+        </S.HeaderActionWrapper>
+      </S.DropdownCollapse>
+      <S.HeaderActionWrapper>
+        <GetZmanHebcal name={'שקיעה'} zmanim={'shkiah'} key={"SunsetDesktopHeaderProps"} />
+      </S.HeaderActionWrapper>
+      <S.HeaderActionWrapper>
+        {location.name}
+      </S.HeaderActionWrapper>
+    </S.DropdownMenu>
+
   );
 };
