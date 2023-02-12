@@ -8,6 +8,7 @@ import ZmanimDay from '../components/ZmanimDay';
 import "../styles/FullBoard.scss";
 import BoxLogo from '../components/BoxLogo';
 import MyClock from '../components/MyClock';
+import { LoopInfiniti } from '../components/LoopInfiniti';
 
 export default function FullBoard() {
     const [ifClock, setIfClock] = useState(true)
@@ -16,8 +17,8 @@ export default function FullBoard() {
     const [ifHebcalZmanimList, setIfHebcalZmanimList] = useState(false)
     const [KosherZmanim, setScreenKosherZmanim] = useState(false);
     const [logo, setlogo] = useState(true);
-    const [listday, setlistday] = useState(true);
-    const [listshbatt, setlistshbatt] = useState(true)
+    const [listday, setlistday] = useState(false);
+    const [listshbatt, setlistshbatt] = useState(false)
     const [buttons, setbuttons] = useState(true);
 
     useEffect(() => {
@@ -28,20 +29,22 @@ export default function FullBoard() {
     return (
         <div className="fullBoard">
             <div className="box">
-                <div className={`${buttons ? "" : "buttons-bord"}`}>
-                    <button onClick={() => setIfClock(!ifClock)}>ifClock</button>
-                    <button onClick={() => setmyClock(!myClock)}>myClock</button>
-                    <button onClick={() => setClockAnalog(!clockAnalog)}>ClockAnalog</button>
-                    <button onClick={() => setIfHebcalZmanimList(!ifHebcalZmanimList)}>ifHebcalZmanimList</button>
-                    <button onClick={() => setScreenKosherZmanim(!KosherZmanim)}>KosherZmanim</button>
-                    <button onClick={() => setlogo(!logo)}>logo</button>
-                    <button onClick={() => setlistday(!listday)}>listday</button>
-                    <button onClick={() => setlistshbatt(!listshbatt)}>listshbatt</button>
+                <div className={`${buttons ? "buttons-grups" : "buttons-bord"}`}>
+                    <button className={ifClock ? "button active " :'button'} onClick={() => setIfClock(!ifClock)}>ifClock</button>
+                    <button className={myClock ? "button active" :'button'} onClick={() => setmyClock(!myClock)}>myClock</button>
+                    <button className={clockAnalog ? "button active" :'button'} onClick={() => setClockAnalog(!clockAnalog)}>ClockAnalog</button>
+                    <button className={ifHebcalZmanimList ? "button active" :'button'} onClick={() => setIfHebcalZmanimList(!ifHebcalZmanimList)}>ifHebcalZmanimList</button>
+                    <button className={KosherZmanim ? "button active" :'button'} onClick={() => setScreenKosherZmanim(!KosherZmanim)}>KosherZmanim</button>
+                    <button className={logo ? "button active" :'button'} onClick={() => setlogo(!logo)}>logo</button>
+                    <button className={listday ? "button active" :'button'} onClick={() => setlistday(!listday)}>listday</button>
+                    <button className={listshbatt ? "button active" :'button'} onClick={() => setlistshbatt(!listshbatt)}>listshbatt</button>
                 </div>
-                <div className='buttonhide' onClick={() => setbuttons(!buttons)}></div>
+                <div className='buttonhide' onClick={() => setbuttons(!buttons)} />
+
                 {myClock && (
                     <Draggable key={"MyClock"}>
-                        <MyClock />
+                        {/* <MyClock /> */}
+                        <LoopInfiniti/>
                     </Draggable>)}
                 {clockAnalog && (
                     <Draggable key={"ClockAnalog"}>

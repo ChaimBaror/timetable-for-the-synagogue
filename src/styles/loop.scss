@@ -1,0 +1,80 @@
+.bodydiv {
+  overflow: hidden;
+  font-size: 0.75vw;
+  width: 80%;
+  margin: auto;
+  background: linear-gradient(to left, transparent 33%, black 33%, black 33.4%, transparent 33.4%, transparent 66.4%, black 66.4%, black 66.75%, transparent 66.75%, transparent 99.6%, black 99.7%) repeat-x;
+  background-size: 100% 100%;
+  background-position: 0 0;
+  animation: slidebg 20s infinite linear;
+  box-shadow: 0 0 5vw 2vw black
+}
+
+.bodydiv1 {
+  overflow: hidden;
+  font-size: 0.75vw;
+  width: 80%;
+  margin: auto;
+  background-size: 100% 100%;
+  background-position: 0 0;
+  animation: slidebg 20s infinite linear;
+  box-shadow: 0 0 5vw 2vw black
+}
+
+.div-div {
+  font-family: georgia;
+  display: flex;
+  border: solid;
+  justify-content: space-between;
+  text-shadow: 80vw 0 green, -80vw 0 red;
+}
+
+.b {
+  color: purple;
+  text-shadow: 80vw 0 purple, -80vw 0 purple;
+  font-size: 2em;
+  display: block;
+}
+
+.ploop {
+  // width: 30%;
+  font-size: xxx-large;
+  // border: 1px solid black;
+  // width: 70px;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: auto;
+  font-weight: bold;
+  margin: 0;
+  padding: 1em;
+  animation: slidep infinite linear 20s;
+}
+
+.p {
+  width: 30%;
+  margin: auto;
+  font-weight: bold;
+  margin: 0;
+  padding: 1em;
+  animation: slidep infinite linear 20s;
+}
+
+@keyframes slidep {
+  from {
+    transform: translateY(80vw, 0)
+  }
+
+  to {
+    transform: translateY(-80vw, 0)
+  }
+}
+
+@keyframes slidebg {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -160vw 0;
+  }
+}
