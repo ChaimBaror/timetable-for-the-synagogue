@@ -23,7 +23,7 @@ const Selectlocations = () => {
     return (
         <select onChange={(e) => handleChange(e)}>
             {items.map((option) => (
-                <option value={option.key}>{option.key}</option>
+                <option key={option.key} value={option.key}>{option.key}</option>
             ))}
         </select>
     )
