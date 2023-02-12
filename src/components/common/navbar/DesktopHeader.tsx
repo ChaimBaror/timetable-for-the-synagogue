@@ -2,7 +2,7 @@ import React from 'react';
 import { HeaderFullscreen } from '../../HeaderFullscreen/HeaderFullscreen';
 import * as S from './Header.styles'
 import { useSelector } from 'react-redux'
-import { GetZmanHebcal } from '../../GetZmanHebcal';
+import { GetZman } from '../../GetZman';
 import { GetDat } from '../../GetDay';
 
 interface DesktopHeaderProps {
@@ -24,7 +24,7 @@ export const DesktopHeader: React.FC<DesktopHeaderProps> = ({ isTwoColumnsLayout
         {location.name}
       </S.HeaderActionWrapper>
       <S.HeaderActionWrapper>
-        <GetZmanHebcal name={'שקיעה'} zmanim={'shkiah'} key={"SunsetDesktopHeaderProps"} />
+        <GetZman name={'שקיעה'} zmanim={'Sunset'} key={"SunsetDesktopHeaderProps"} />
       </S.HeaderActionWrapper>
       <S.HeaderActionWrapper>
         <GetDat type={'dafyomi'} />

@@ -1,6 +1,4 @@
-import { log } from "console";
-import React, { Children, useEffect, useState } from "react";
-import { render } from "react-dom";
+import React, { useEffect, useState } from "react";
 import { Rnd } from "react-rnd";
 import * as S from './Draggable.style'
 type Props = {
@@ -24,10 +22,9 @@ const Draggable: React.FC<Props> = ({ width, height, x = 10, y = 10, children, c
     const [size, setSize] = useState({ width: width, height: height });
     const [position, setPosition] = useState({ x: x, y: y });
 
-    useEffect(() => {
-        console.log(size, position);
-
-    }, [size, position])
+    // useEffect(() => {
+    //     console.log("ref");
+    // }, [ref])
 
 
 

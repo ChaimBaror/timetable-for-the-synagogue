@@ -13,6 +13,20 @@
     padding: 5px 5px 5px 5px;
 }
 
+.buttons-bord {
+    display: none;
+}
+
+.buttonhide {
+    height: 100px;
+    width: 100px;
+}
+
+.buttonhide:hover {
+
+    border: #000 1px dashed;
+}
+
 .title {
     color: floralwhite;
     padding: 10px;
@@ -128,5 +142,5 @@
 }
 
 .divdnd:hover {
-    border: solid 1px #ddd;
+    border: dashed 1px #ddd;
 }

@@ -47,7 +47,6 @@ export const list_zmanim_Tfila_on_shbatt = [
     { name: "מנחה", zmanim: "13:15" },
     { name: 'ערבית צאת שבת', zmanim: "19:00" },
 
-
 ]
 
 

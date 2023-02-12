@@ -24,6 +24,7 @@ export const GetDat = ({ type = "getDay" }) => {
         )
     }
 
+
     return (
         <>
             יום {HebrewDateFormatter.hebrewDaysOfWeek[getDay]} {toStringDay}

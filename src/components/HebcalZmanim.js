@@ -7,7 +7,7 @@ import Selectlocations from './common/Select/selectlocations';
 
 const HebcalZmanim = () => {
     const { location } = useSelector(state => state)
- 
+
     const myDate = new Date();
     const Latitude = location.Latitude;
     const Longitude = location.Longitude;
