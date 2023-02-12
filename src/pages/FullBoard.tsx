@@ -6,10 +6,11 @@ import { HebcalZmanimList } from '../components/HebcalZmanimList';
 import ScreenKosherZmanim from '../components/ScreenKosherZmanim';
 import ZmanimDay from '../components/ZmanimDay';
 import "../styles/FullBoard.scss";
-import { list_zmanim_Tfila_on_shbatt } from '../utils/module';
+import BoxLogo from '../components/BoxLogo';
 
 export default function FullBoard() {
     const [ifClock, setIfClock] = useState(true)
+    const [clockAnalog, setClockAnalog] = useState(true)
     const [ifHebcalZmanimList, setIfHebcalZmanimList] = useState(false)
     const [KosherZmanim, setScreenKosherZmanim] = useState(false);
     const [logo, setlogp] = useState(true);
@@ -24,10 +25,10 @@ export default function FullBoard() {
 
     return (
         <div className="fullBoard">
-
             <div className="box">
                 <div className={`${buttons ? "" : "buttons-bord"}`}>
                     <button onClick={() => setIfClock(!ifClock)}>ifClock</button>
+                    <button onClick={() => setClockAnalog(!clockAnalog)}>ClockAnalog</button>
                     <button onClick={() => setIfHebcalZmanimList(!ifHebcalZmanimList)}>ifHebcalZmanimList</button>
                     <button onClick={() => setScreenKosherZmanim(!KosherZmanim)}>KosherZmanim</button>
                     <button onClick={() => setlogp(!logo)}>logo</button>
@@ -35,51 +36,34 @@ export default function FullBoard() {
                     <button onClick={() => setlistshbatt(!listshbatt)}>listshbatt</button>
                 </div>
                 <div className='buttonhide' onClick={() => setbuttons(!buttons)}></div>
-
-                <div className='logo'>
-                    {ifHebcalZmanimList &&
-                        <Draggable key={"0999d"}>
-                            <HebcalZmanimList />
-                        </Draggable>}
-                    {KosherZmanim &&
-                        <Draggable key={"0999s"}>
-                            <ScreenKosherZmanim />
-                        </Draggable>}
-                    {ifClock && (
-                        <Draggable key={"0999a"}>
-                            <Clock />
-                        </Draggable>)}
-
-                    {logo &&
-                        <Draggable key={"0999"} >
-                            <div className="circle-logo">
-                                <div className="box-logo">
-                                    <div className='shadow'> בית הכנסת סיני</div>
-                                </div>
-                            </div>
-                        </Draggable>}
-                    {ifClock && (
-                        <Draggable key={"09991"}>
-                            <Clock />
-                        </Draggable>)}
-                </div>
-                {listday &&
-                    <Draggable key={"093list"} >
-                            <ZmanimDay title={"זמני תפילה חול"} />
+                {clockAnalog && (
+                    <Draggable key={"ClockAnalog"}>
+                        <ClockAnalog />
+                    </Draggable>)}
+                {ifHebcalZmanimList &&
+                    <Draggable key={"HebcalZmanimList"}>
+                        <HebcalZmanimList />
                     </Draggable>}
-                {listshbatt && <Draggable key={"0932"} >
-                    <>
-                        <h1 className='title-zaman shadow '>זמני תפילה שבת</h1>
-                        <div className='flex'>
-                            {list_zmanim_Tfila_on_shbatt.map(({ name, zmanim }) => (
-                                <div>
-                                    <div className="title">{name} </div>
-                                    <div className="boxSub">{zmanim}</div>
-                                </div>)
-                            )}
-                        </div>
-                    </>
-                </Draggable>}
+                {KosherZmanim &&
+                    <Draggable key={"ScreenKosherZmanim"}>
+                        <ScreenKosherZmanim />
+                    </Draggable>}
+                {ifClock && (
+                    <Draggable key={"Clock"}>
+                        <Clock />
+                    </Draggable>)}
+                {logo &&
+                    <Draggable key={"logo"} >
+                        <BoxLogo key={7567} title={"בית הכנסת סיני "} />
+                    </Draggable>}
+                {listday &&
+                    <Draggable key={"ZmanimDay"} >
+                        <ZmanimDay title={"זמני תפילה חול"} />
+                    </Draggable>}
+                {listshbatt &&
+                    <Draggable key={"ZmanimDay"} >
+                        <ZmanimDay  title={"זמני תפילה שבת"} type={'shbatt'} />
+                    </Draggable>}
             </div>
 
         </div>

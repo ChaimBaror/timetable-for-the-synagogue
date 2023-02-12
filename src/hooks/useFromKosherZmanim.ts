@@ -7,7 +7,6 @@ export default function useFromKosherZmanim(getZmanim: string) {
     const { location } = useSelector((state: any) => state)
     useEffect(() => {
         console.log(getZmanim);
-
     }, [getZmanim])
 
 
