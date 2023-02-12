@@ -7,13 +7,15 @@ import ScreenKosherZmanim from '../components/ScreenKosherZmanim';
 import ZmanimDay from '../components/ZmanimDay';
 import "../styles/FullBoard.scss";
 import BoxLogo from '../components/BoxLogo';
+import MyClock from '../components/MyClock';
 
 export default function FullBoard() {
     const [ifClock, setIfClock] = useState(true)
-    const [clockAnalog, setClockAnalog] = useState(true)
+    const [myClock, setmyClock] = useState(true)
+    const [clockAnalog, setClockAnalog] = useState(false)
     const [ifHebcalZmanimList, setIfHebcalZmanimList] = useState(false)
     const [KosherZmanim, setScreenKosherZmanim] = useState(false);
-    const [logo, setlogp] = useState(true);
+    const [logo, setlogo] = useState(true);
     const [listday, setlistday] = useState(true);
     const [listshbatt, setlistshbatt] = useState(true)
     const [buttons, setbuttons] = useState(true);
@@ -28,14 +30,19 @@ export default function FullBoard() {
             <div className="box">
                 <div className={`${buttons ? "" : "buttons-bord"}`}>
                     <button onClick={() => setIfClock(!ifClock)}>ifClock</button>
+                    <button onClick={() => setmyClock(!myClock)}>myClock</button>
                     <button onClick={() => setClockAnalog(!clockAnalog)}>ClockAnalog</button>
                     <button onClick={() => setIfHebcalZmanimList(!ifHebcalZmanimList)}>ifHebcalZmanimList</button>
                     <button onClick={() => setScreenKosherZmanim(!KosherZmanim)}>KosherZmanim</button>
-                    <button onClick={() => setlogp(!logo)}>logo</button>
+                    <button onClick={() => setlogo(!logo)}>logo</button>
                     <button onClick={() => setlistday(!listday)}>listday</button>
                     <button onClick={() => setlistshbatt(!listshbatt)}>listshbatt</button>
                 </div>
                 <div className='buttonhide' onClick={() => setbuttons(!buttons)}></div>
+                {myClock && (
+                    <Draggable key={"MyClock"}>
+                        <MyClock />
+                    </Draggable>)}
                 {clockAnalog && (
                     <Draggable key={"ClockAnalog"}>
                         <ClockAnalog />
@@ -58,11 +65,11 @@ export default function FullBoard() {
                     </Draggable>}
                 {listday &&
                     <Draggable key={"ZmanimDay"} >
-                        <ZmanimDay title={"זמני תפילה חול"} />
+                        <ZmanimDay key={"ZmanimDay"} title={"זמני תפילה חול"} />
                     </Draggable>}
                 {listshbatt &&
                     <Draggable key={"ZmanimDay"} >
-                        <ZmanimDay  title={"זמני תפילה שבת"} type={'shbatt'} />
+                        <ZmanimDay key={"onShbatt"} title={"זמני תפילה שבת"} type={'shbatt'} />
                     </Draggable>}
             </div>
 

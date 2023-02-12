@@ -12,17 +12,18 @@
     text-align: center;
     padding: 5px 5px 5px 5px;
 }
-.buttons-bord{
-    transition: width 2s;
 
+.buttons-bord {
     display: none;
 }
-.buttonhide{
+
+.buttonhide {
     height: 100px;
     width: 100px;
 }
-.buttonhide:hover{
- 
+
+.buttonhide:hover {
+
     border: #000 1px dashed;
 }
 
@@ -141,5 +142,5 @@
 }
 
 .divdnd:hover {
-    border: solid 1px #ddd;
+    border: dashed 1px #ddd;
 }

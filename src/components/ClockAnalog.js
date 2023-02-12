@@ -4,7 +4,7 @@ import AnalogClock from 'analog-clock-react';
 const ClockAnalog = () => {
     const [options, setOptions] = useState({
         // useCustomTime: true,
-        width: "250px",
+        // width: "450px",
         border: true,
         borderColor: "#50bfff",
         baseColor: "#99daff",
@@ -19,9 +19,9 @@ const ClockAnalog = () => {
 
 
     return (
-        <div className='continer'>
+        // <div className='continer'>
             <AnalogClock {...options} />
-        </div >
+        // </div >
     )
 }
 
