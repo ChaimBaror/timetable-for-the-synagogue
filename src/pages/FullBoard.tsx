@@ -11,7 +11,7 @@ import MyClock from '../components/MyClock';
 
 export default function FullBoard() {
     const [ifClock, setIfClock] = useState(true)
-    const [myClock, setmyClock] = useState(true)
+    const [myClock, setmyClock] = useState(false)
     const [clockAnalog, setClockAnalog] = useState(false)
     const [ifHebcalZmanimList, setIfHebcalZmanimList] = useState(false)
     const [KosherZmanim, setScreenKosherZmanim] = useState(false);
@@ -64,8 +64,8 @@ export default function FullBoard() {
                         <BoxLogo key={7567} title={"בית הכנסת סיני "} />
                     </Draggable>}
                 {listday &&
-                    <Draggable key={"ZmanimDay"} >
-                        <ZmanimDay key={"ZmanimDay"} title={"זמני תפילה חול"} />
+                    <Draggable key={"ZmanimDayh"} >
+                        <ZmanimDay key={"ZmanimDayholl"} title={"זמני תפילה חול"} />
                     </Draggable>}
                 {listshbatt &&
                     <Draggable key={"ZmanimDay"} >

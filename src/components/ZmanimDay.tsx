@@ -52,11 +52,11 @@ export default function ZmanimDay(props: Title): JSX.Element {
     return (
         <>
             <div className='title-zaman shadow '>{title}</div>
-            <div className='flex'>
+            <div className='flex' >
                 {zmanim_Tfila.map(({ name, zmanim }) => (
-                    <div>
-                        <div className="title">{name} </div>
-                        <div className="boxSub">{zmanim}</div>
+                    <div key={name+zmanim}>
+                        <div key={name} className="title">{name} </div>
+                        <div key={zmanim} className="boxSub">{zmanim}</div>
                     </div>
                 )
                 )}
