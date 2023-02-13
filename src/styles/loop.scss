@@ -15,6 +15,8 @@
   font-size: 0.75vw;
   width: 80%;
   margin: auto;
+  // background: linear-gradient(to left, transparent 33%, black 33%, black 33.4%, transparent 33.4%, transparent 66.4%, black 66.4%, black 66.75%, transparent 66.75%, transparent 99.6%, black 99.7%) repeat-x;
+
   background-size: 100% 100%;
   background-position: 0 0;
   animation: slidebg 20s infinite linear;
@@ -28,7 +30,13 @@
   justify-content: space-between;
   text-shadow: 80vw 0 green, -80vw 0 red;
 }
-
+.div-lo {
+  font-family: georgia;
+  display: flex;
+  border: solid;
+  justify-content: space-between;
+  // text-shadow: 80vw 0 green, -80vw 0 red;
+}
 .b {
   color: purple;
   text-shadow: 80vw 0 purple, -80vw 0 purple;
@@ -38,9 +46,9 @@
 
 .ploop {
   // width: 30%;
-  font-size: xxx-large;
+  // font-size: large;
   // border: 1px solid black;
-  // width: 70px;
+  width: fit-content;
   overflow: hidden;
   white-space: nowrap;
   margin: auto;
@@ -61,11 +69,11 @@
 
 @keyframes slidep {
   from {
-    transform: translateY(80vw, 0)
+    transform: translate(80vw, 0)
   }
 
   to {
-    transform: translateY(-80vw, 0)
+    transform: translate(-80vw, 0)
   }
 }
 
