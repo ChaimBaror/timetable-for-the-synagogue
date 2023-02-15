@@ -1,5 +1,9 @@
-import { GetZman } from "./GetZman"
+import moment from 'moment'
+import FromKosherZmanim from '../hooks/useFromKosherZmanim'
 import '../styles/loop.scss'
+import { list_zmanim } from '../utils/module'
+import { GetDat } from './GetDay'
+import { GetZman } from './GetZman'
 
 export const ListLoop = () => {
     return (
@@ -8,15 +12,18 @@ export const ListLoop = () => {
                 <div className="div-div">
                     <div>
                         <p className="p">
-                            <b className="b">Colors are here to make obvious role of <code>text-shadow</code></b>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est.
-                            Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus
-                            lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
-                            facilisis luctus, metus</p>
-                        <p >Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est.
-                            Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,</p>
-                        <p>condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus
-                            lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
-                            facilisis luctus, metus</p>
+                            <b className="b">לוח זמנים <div className="p">
+                                <GetDat type={'getDay'} />
+                                <GetDat type={'getSedra'} />
+                                <GetDat type={'dafyomi'} />
+                            </div> <code>        <GetZman name={'שקיעה'} zmanim={'Sunset'} key={"SunsetDesktopHeaderProps"} />
+                                </code></b>
+                            {list_zmanim.map(({ name, zmanim }) => (
+                                <> &bull; {name} : {moment(FromKosherZmanim(zmanim)).format(' HH:mm ')} &bull; </>)
+                            )}
+
+                        </p>
+
                     </div>
                 </div>
             </div>
