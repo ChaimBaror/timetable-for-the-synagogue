@@ -18,6 +18,13 @@
 .buttons-bord {
     visibility: hidden;
 }
+.buttons-grups {
+    position: absolute;
+    background-color: red;
+    width: 250px;
+    display: inline-grid;
+    height: 500px;
+}
 
 .buttonhide {
     height: 100px;
