@@ -2,31 +2,29 @@ import React, { useEffect, useState } from 'react'
 import Popup from 'reactjs-popup';
 import { PlusSquareOutlined } from '@ant-design/icons';
 import { useLocalStorage } from '../../../hooks/useLocalStorage';
+import { convertToZman } from '../../../utils/module';
 
 // interface Props {
 //     zmanim_Tfila?: any[];
 //     title: string;
 //     type: string
 // }
+
 export default function PopupEdit(props) {
-  const { title, zmanim_Tfila, type } = props;
+  const { title, type } = props;
   const [Zmanim_Day, setZmanim_Day] = useLocalStorage(type, "");
   const [filterText, setFilterText] = useState('');
   const [products, setProducts] = useState();
 
 
   useEffect(() => {
-    if(!products){
+    if (!products) {
       setProducts(Zmanim_Day)
     }
-    else{
+    else {
       setZmanim_Day(products)
-
     }
   }, [products])
-
-
-
 
   // function handleUserInput(filterText) {
   //   setFilterText(filterText);
@@ -45,7 +43,8 @@ export default function PopupEdit(props) {
       id: id,
       name: "",
       time: "",
-      category: ""
+      select: 'Permanent',
+      category: type
     }
     const newProducts = [...products, product];
     setProducts(newProducts);
@@ -57,6 +56,7 @@ export default function PopupEdit(props) {
       name: e.target.name,
       value: e.target.value
     };
+
     const newProducts = products.map(product => {
       if (product.id == item.id) {
         return { ...product, [item.name]: item.value };
@@ -89,32 +89,46 @@ export default function PopupEdit(props) {
 }
 
 function EditableCell({ cellData, onProductTableUpdate }) {
+
   return (
     <td>
-      <input type={cellData.type} name={cellData.type} id={cellData.id} value={cellData.value} onChange={onProductTableUpdate} />
+      {cellData.type == 'select'?
+      ( <select type={cellData.type} name={cellData.type} id={cellData.id} defaultValue={cellData.value} onChange={onProductTableUpdate}  >
+            { Object.keys(convertToZman).map((option) => (
+                <option key={option} value={option}>{convertToZman[option]}</option>
+            ))}
+        </select>
+      ):
+      <input type={cellData.type} name={cellData.name} id={cellData.id} defaultValue={cellData.value} onChange={onProductTableUpdate} />
+      }
     </td>
   );
 }
+
 function ProductRow({ onDelEvent, onProductTableUpdate, product }) {
   return (
     <tr className="eachRow">
       <EditableCell onProductTableUpdate={onProductTableUpdate} cellData={{
         "type": "name",
+        name:"name",
         value: product.name,
         id: product.id
       }} />
       <EditableCell onProductTableUpdate={onProductTableUpdate} cellData={{
-        type: "text",
-        value: product.ZMAN,
+        type: "select",
+        name:"select",
+        value: product.select,
         id: product.id
       }} />
       <EditableCell onProductTableUpdate={onProductTableUpdate} cellData={{
-        type: "time",
+        name: product.select == 'Permanent' || !product.select ? "Permanent" : "time",
+        type: product.select == 'Permanent' || !product.select ? "time" : "number",
         value: product.time,
         id: product.id
       }} />
       <EditableCell onProductTableUpdate={onProductTableUpdate} cellData={{
         type: "category",
+        name:"category",
         value: product.category,
         id: product.id
       }} />
@@ -134,7 +148,7 @@ function ProductTable({ products, filterText, onProductTableUpdate, onRowAdd, on
         <thead>
           <tr>
             <th>Name</th>
-            <th>ZMAN</th>
+            <th>select</th>
             <th>time</th>
             <th>category</th>
           </tr>

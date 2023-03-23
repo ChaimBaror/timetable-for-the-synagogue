@@ -16,6 +16,12 @@ export const list_zmanim = [
     { name: 'צאת הכוכבים ר"ת', zmanim: "Tzais72" },
 
 ]
+export const convertToZman = {
+    "Permanent": 'קבועה',
+    "sunsetPlusMinutes": 'שקיעה',
+    "CandleLightingPlusMinutes": 'הדלקת נרות',
+    "TzaisGeonimPlusMinutes": 'צאת הכוכבים',
+}
 
 export const hebcal_list = [
     { name: "עלות השחר", zmanim: 'alot_hashachar' },
@@ -32,6 +38,27 @@ export const hebcal_list = [
     { name: "צאת הכוכבים", zmanim: "tzeit" },
     { name: "חצות הלילה", zmanim: 'chatzot_night' }
 ]
+
+
+export const Day = [
+    { id: 1, name: "שחרית", Permanent: "06:15", select: 'Permanent', category: 'Day' },
+    { id: 2, name: "שחרית", Permanent: "08:10", select: 'Permanent', category: 'Day' },
+    { id: 3, name: "מנחה", time: '-10', select: 'sunsetPlusMinutes', category: 'Day' },
+    { id: 4, name: "ערבית", time: '20', select: 'sunsetPlusMinutes', category: 'Day' },
+]
+
+export const SHABAAT = [
+    { id: 10, name: 'הדלקת נרות', time: "0", select: 'CandleLightingPlusMinutes', category: 'SHABAAT' },
+    { id: 11, name: 'מנחה ערב שבת', time: "5", select: 'CandleLightingPlusMinutes', category: 'SHABAAT' },
+    { id: 12, name: 'ערבית שבת', time: "45", select: 'CandleLightingPlusMinutes', category: 'SHABAAT' },
+    { id: 13, name: "שחרית שבת", Permanent: "08:00", select: 'Permanent', category: 'SHABAAT' },
+    { id: 14, name: "מנחה שבת", time: "-15", select: 'CandleLightingPlusMinutes', category: 'SHABAAT' },
+    { id: 15, name: 'ערבית צאת שבת', time: "55", select: 'CandleLightingPlusMinutes', category: 'SHABAAT' },
+]
+
+
+
+
 
 export const list_zmanim_Tfila = [
     { name: "שחרית", zmanim: "8:00" },

@@ -4,6 +4,7 @@ import useFromKosherZmanim from '../hooks/useFromKosherZmanim';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import '../styles/PopupStyle.scss'
 import PopupEdit from './common/popup/PopupEdit';
+import { Day, SHABAAT } from '../utils/module';
 
 interface Title {
     title: string;
@@ -23,28 +24,13 @@ export default function ZmanimDay(props: Title): JSX.Element {
     useEffect(() => {
         if (type == "Zmanim_Tfila") {
             if (!Zmanim_Day) {
-                setZmanim_Day([
-                    { id: 1, name: "שחרית", time: "06:15", ZMAN: 'Permanent', category: 'Day' },
-                    { id: 2, name: "שחרית", time: "08:10", ZMAN: 'Permanent', category: 'Day' },
-                    { id: 3, name: "מנחה", time: '-10', ZMAN: 'sunsetPlusMinutes', category: 'Day' },
-                    { id: 4, name: "ערבית", time: '20', ZMAN: 'sunsetPlusMinutes', category: 'Day' },
-
-                ])
+                setZmanim_Day(Day)
             }
             setZmanim_Tfila([...Zmanim_Day])
         }
         if (type == "shbatt") {
             if (!shbatt) {
-                setShbatt(
-                    [
-                        { id: 10, name: 'הדלקת נרות', time: "0", ZMAN: 'CandleLightingPlusMinutes', category: 'SHABAAT' },
-                        { id: 11, name: 'מנחה ערב שבת', time: "5", ZMAN: 'CandleLightingPlusMinutes', category: 'SHABAAT' },
-                        { id: 12, name: 'ערבית שבת', time: "45", ZMAN: 'CandleLightingPlusMinutes', category: 'SHABAAT' },
-                        { id: 13, name: "שחרית שבת", time: "08:00", ZMAN: 'Permanent', category: 'SHABAAT' },
-                        { id: 14, name: "מנחה שבת", time: "-15", ZMAN: 'CandleLightingPlusMinutes', category: 'SHABAAT' },
-                        { id: 15, name: 'ערבית צאת שבת', time: "55", ZMAN: 'CandleLightingPlusMinutes', category: 'SHABAAT' },
-
-                    ])
+                setShbatt(SHABAAT)
             }
             setZmanim_Tfila([...shbatt])
         }
@@ -67,12 +53,12 @@ export default function ZmanimDay(props: Title): JSX.Element {
 
 
     function listOfTime(list: any[]) {
-        return list.map(({ name, time, ZMAN }) => {            
-            const zmain = ZMAN == 'Permanent' || !ZMAN  ? time : convertToZman[ZMAN as keyof typeof convertToZman](time);
+        return list.map(({id, name, time, select,Permanent }) => {            
+            const zmain = select == 'Permanent' || !select  ? Permanent : convertToZman[select as keyof typeof convertToZman](time);
 
-            return (<div key={name + time}>
+            return (<div key={id}>
                 <div key={name} className="title">{name} </div>
-                <div key={time} className="boxSub">{zmain}</div>
+                <div key={zmain} className="boxSub">{zmain}</div>
             </div>
             )
         }) 
@@ -80,7 +66,7 @@ export default function ZmanimDay(props: Title): JSX.Element {
 
     return (
         <>
-            <PopupEdit title={title} zmanim_Tfila={zmanim_Tfila} type={type} />
+            <PopupEdit title={title} type={type} />
             <div className='flex' >
                 {listOfTime(zmanim_Tfila)}
             </div>
