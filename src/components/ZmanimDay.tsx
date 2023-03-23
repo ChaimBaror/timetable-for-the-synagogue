@@ -1,6 +1,10 @@
 import moment from 'moment';
 import React, { useEffect, useState } from 'react'
 import useFromKosherZmanim from '../hooks/useFromKosherZmanim';
+import { useLocalStorage } from '../hooks/useLocalStorage';
+import '../styles/PopupStyle.scss'
+import PopupEdit from './common/popup/PopupEdit';
+import { Day, SHABAAT } from '../utils/module';
 
 interface Title {
     title: string;
@@ -8,33 +12,27 @@ interface Title {
 }
 
 export default function ZmanimDay(props: Title): JSX.Element {
-    const { title, type } = props;
+    const { title, type = "Zmanim_Tfila" } = props;
     const [zmanim_Tfila, setZmanim_Tfila] = useState<any[]>([]);
+
     const Sunset = useFromKosherZmanim("Sunset")
     const CandleLighting = useFromKosherZmanim("CandleLighting")
-    const TzaisGeonim = useFromKosherZmanim("TzaisGeonim4Point37Degrees")
+    const TzaisGeonim = useFromKosherZmanim("TzaisGeonim4Point37Degrees");
+    const [Zmanim_Day, setZmanim_Day] = useLocalStorage("Zmanim_Tfila", "");
+    const [shbatt, setShbatt] = useLocalStorage("shbatt", "");
 
     useEffect(() => {
-        if (!type) {
-            setZmanim_Tfila(
-                [
-                    { name: "שחרית", zmanim: "6:15" },
-                    { name: "שחרית", zmanim: "8:10" },
-                    { name: "מנחה", zmanim: sunsetPlusMinutes(-10) },
-                    { name: 'ערבית', zmanim: sunsetPlusMinutes(20) },
-                ]
-            )
+        if (type == "Zmanim_Tfila") {
+            if (!Zmanim_Day) {
+                setZmanim_Day(Day)
+            }
+            setZmanim_Tfila([...Zmanim_Day])
         }
         if (type == "shbatt") {
-            setZmanim_Tfila(
-                [
-                    { name: 'הדלקת נרות', zmanim: CandleLightingPlusMinutes(0) },
-                    { name: 'מנחה ערב שבת', zmanim: CandleLightingPlusMinutes(5) },
-                    { name: 'ערבית שבת', zmanim: CandleLightingPlusMinutes(45) },
-                    { name: "שחרית שבת", zmanim: "8:00" },
-                    { name: "מנחה שבת", zmanim: CandleLightingPlusMinutes(-15) },
-                    { name: 'ערבית צאת שבת', zmanim: CandleLightingPlusMinutes(55) },
-                ])
+            if (!shbatt) {
+                setShbatt(SHABAAT)
+            }
+            setZmanim_Tfila([...shbatt])
         }
     }, [])
 
@@ -47,19 +45,30 @@ export default function ZmanimDay(props: Title): JSX.Element {
     const TzaisGeonimPlusMinutes = (minutes: number) => {
         return moment(new Date(TzaisGeonim)).add(minutes, 'minutes').format(' HH:mm ')
     }
+    const convertToZman: any = {
+        "sunsetPlusMinutes": sunsetPlusMinutes,
+        "CandleLightingPlusMinutes": CandleLightingPlusMinutes,
+        "TzaisGeonimPlusMinutes": TzaisGeonimPlusMinutes,
+    }
 
+
+    function listOfTime(list: any[]) {
+        return list.map(({id, name, time, select,Permanent }) => {            
+            const zmain = select == 'Permanent' || !select  ? Permanent : convertToZman[select as keyof typeof convertToZman](time);
+
+            return (<div key={id}>
+                <div key={name} className="title">{name} </div>
+                <div key={zmain} className="boxSub">{zmain}</div>
+            </div>
+            )
+        }) 
+    }
 
     return (
         <>
-            <div className='title-zaman shadow '>{title}</div>
+            <PopupEdit title={title} type={type} />
             <div className='flex' >
-                {zmanim_Tfila.map(({ name, zmanim }) => (
-                    <div key={name+zmanim}>
-                        <div key={name} className="title">{name} </div>
-                        <div key={zmanim} className="boxSub">{zmanim}</div>
-                    </div>
-                )
-                )}
+                {listOfTime(zmanim_Tfila)}
             </div>
         </>
     )

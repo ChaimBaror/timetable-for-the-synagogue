@@ -18,13 +18,15 @@ type Props = {
 //     background: "#f0f0f0"
 // };
 
-const Draggable: React.FC<Props> = ({ width, height, x = 10, y = 10, children, className }) => {
+const Draggable: React.FC<Props> = ({ width, height='auto', x = 10, y = 10, children, className }) => {
     const [size, setSize] = useState({ width: width, height: height });
     const [position, setPosition] = useState({ x: x, y: y });
 
     // useEffect(() => {
-    //     console.log("ref");
-    // }, [ref])
+    //     console.log("size : ",size);
+    //     console.log("position : ",position);
+
+    // }, [size, position])
 
 
 
@@ -43,8 +45,8 @@ const Draggable: React.FC<Props> = ({ width, height, x = 10, y = 10, children, c
                 onResizeStop={(e, direction, ref, delta, position) => {
                     setSize({
                         ...size,
-                        width: +ref.style.width,
-                        height: +ref.style.height,
+                        width: ref.style.width,
+                        height: ref.style.height,
                         ...position
                     });
                 }}>

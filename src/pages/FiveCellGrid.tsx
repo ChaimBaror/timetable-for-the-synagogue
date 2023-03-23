@@ -4,7 +4,6 @@ import ItemList from '../components/common/list/ItemList'
 import ScreenKosherZmanim from '../components/ScreenKosherZmanim'
 import { list_zmanim_Tfila } from '../utils/module'
 import "../styles/ScreenKosherZmanim.scss";
-import HebcalZmanim from '../components/HebcalZmanim'
 import Clock from '../components/Clock'
 
 const FiveCellGrid: React.FC = () => {
@@ -20,7 +19,6 @@ const FiveCellGrid: React.FC = () => {
                     )}
                 </div>
                 <div>
-                    <HebcalZmanim />
                     <div className="ClockAnalog">
                         <Clock />
                         <ClockAnalog />

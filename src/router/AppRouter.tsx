@@ -5,6 +5,7 @@ import Error404Page from '../pages/Error404Page';
 import FiveCellGrid from '../pages/FiveCellGrid';
 import FullBoard from '../pages/FullBoard';
 import HomePage from '../pages/HomePage';
+import LoopBord from '../pages/LoopBord';
 import SelectPlace from '../pages/SelectPlace';
 import RequireAuth from './RequireAuth';
 
@@ -32,6 +33,7 @@ export const AppRouter: React.FC = () => {
         <Route path="/" element={protectedLayout}>
           <Route index element={< FullBoard />} />
           <Route path="/dashboard" element={<FiveCellGrid />} />
+          <Route path="/LoopBord" element={<LoopBord />} />
           <Route path="/template" element={<HomePage />} />
           <Route path="/HebcalZmanim" element={<SelectPlace />} />
           <Route path="/404" element={<Error404Page />} />

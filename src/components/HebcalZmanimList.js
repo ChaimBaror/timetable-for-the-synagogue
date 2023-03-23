@@ -1,31 +1,20 @@
-import React from 'react'
-import Hebcal from "hebcal";
 import { hebcal_list } from '../utils/module';
 import moment from "moment";
 import ItemList from './common/list/ItemList';
 import { useSelector } from 'react-redux';
-import Selectlocations from './common/Select/selectlocations';
+import { useGetzman as Getzman } from '../hooks/useGetHebcal';
 
 export const HebcalZmanimList = () => {
 
     const { location } = useSelector(state => state)
-
-
     const city = location.name;
-    const myDate = new Date();
-    const Latitude = location.Latitude;
-    const Longitude = location.Longitude;
-    const hebcal = new Hebcal.HDate(myDate);
-    hebcal.setCity(city);
-    hebcal.setLocation(Latitude, Longitude);
-    let Zemanim = hebcal.getZemanim('h')
 
     return (
         <div className='continer'>
             <div className='list_of_zmanim'>
                 <h1 className='date_information'>זמני היום {city}</h1>
                 {hebcal_list.map(({ name, zmanim }) => (
-                    <ItemList key={name} name={`${name}:`} zmanim={moment(new Date(Zemanim[zmanim])).format(' HH:mm:ss ')} />)
+                    <ItemList key={name} name={`${name}:`} zmanim={moment(new Date(Getzman(zmanim))).format(' HH:mm:ss ')} />)
                 )}
             </div>
         </div >)

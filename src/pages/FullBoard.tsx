@@ -8,10 +8,12 @@ import ZmanimDay from '../components/ZmanimDay';
 import "../styles/FullBoard.scss";
 import BoxLogo from '../components/BoxLogo';
 import MyClock from '../components/MyClock';
+import { LoopInfiniti } from '../components/LoopInfiniti';
+import Popup from 'reactjs-popup';
 
 export default function FullBoard() {
     const [ifClock, setIfClock] = useState(true)
-    const [myClock, setmyClock] = useState(false)
+    const [myClock, setmyClock] = useState(true)
     const [clockAnalog, setClockAnalog] = useState(false)
     const [ifHebcalZmanimList, setIfHebcalZmanimList] = useState(false)
     const [KosherZmanim, setScreenKosherZmanim] = useState(false);
@@ -28,47 +30,55 @@ export default function FullBoard() {
     return (
         <div className="fullBoard">
             <div className="box">
-                <div className={`${buttons ? "" : "buttons-bord"}`}>
-                    <button onClick={() => setIfClock(!ifClock)}>ifClock</button>
-                    <button onClick={() => setmyClock(!myClock)}>myClock</button>
-                    <button onClick={() => setClockAnalog(!clockAnalog)}>ClockAnalog</button>
-                    <button onClick={() => setIfHebcalZmanimList(!ifHebcalZmanimList)}>ifHebcalZmanimList</button>
-                    <button onClick={() => setScreenKosherZmanim(!KosherZmanim)}>KosherZmanim</button>
-                    <button onClick={() => setlogo(!logo)}>logo</button>
-                    <button onClick={() => setlistday(!listday)}>listday</button>
-                    <button onClick={() => setlistshbatt(!listshbatt)}>listshbatt</button>
-                </div>
-                <div className='buttonhide' onClick={() => setbuttons(!buttons)}></div>
+                <Popup
+
+                 trigger={
+                    <div className='buttonhide' onClick={() => setbuttons(!buttons)} />
+                } position="center center">
+                    <div className={`${buttons ? "buttons-grups" : "buttons-bord"}`}>
+                        <button className={ifClock ? "button active " : 'button'} onClick={() => setIfClock(!ifClock)}>ifClock</button>
+                        <button className={myClock ? "button active" : 'button'} onClick={() => setmyClock(!myClock)}>myClock</button>
+                        <button className={clockAnalog ? "button active" : 'button'} onClick={() => setClockAnalog(!clockAnalog)}>ClockAnalog</button>
+                        <button className={ifHebcalZmanimList ? "button active" : 'button'} onClick={() => setIfHebcalZmanimList(!ifHebcalZmanimList)}>ifHebcalZmanimList</button>
+                        <button className={KosherZmanim ? "button active" : 'button'} onClick={() => setScreenKosherZmanim(!KosherZmanim)}>KosherZmanim</button>
+                        <button className={logo ? "button active" : 'button'} onClick={() => setlogo(!logo)}>logo</button>
+                        <button className={listday ? "button active" : 'button'} onClick={() => setlistday(!listday)}>listday</button>
+                        <button className={listshbatt ? "button active" : 'button'} onClick={() => setlistshbatt(!listshbatt)}>listshbatt</button>
+                    </div>
+                </Popup>
+
+
                 {myClock && (
-                    <Draggable key={"MyClock"}>
+                    <Draggable key={"MyClock"} width={'267px'} height={'264px'} x={1597} y={-107} >
                         <MyClock />
+                        {/* <LoopInfiniti/> */}
                     </Draggable>)}
                 {clockAnalog && (
                     <Draggable key={"ClockAnalog"}>
-                        <ClockAnalog />
+                        <LoopInfiniti />
                     </Draggable>)}
                 {ifHebcalZmanimList &&
-                    <Draggable key={"HebcalZmanimList"}>
+                    <Draggable key={"HebcalZmanimList"} x={76} y={-248}>
                         <HebcalZmanimList />
                     </Draggable>}
                 {KosherZmanim &&
-                    <Draggable key={"ScreenKosherZmanim"}>
+                    <Draggable key={"ScreenKosherZmanim"} x={76} y={-248}>
                         <ScreenKosherZmanim />
                     </Draggable>}
                 {ifClock && (
-                    <Draggable key={"Clock"}>
+                    <Draggable key={"Clock"} width={'123px'} height={'51px'} x={1666} y={52}>
                         <Clock />
                     </Draggable>)}
                 {logo &&
-                    <Draggable key={"logo"} >
+                    <Draggable key={"logo"} x={808} y={-242} >
                         <BoxLogo key={7567} title={"בית הכנסת סיני "} />
                     </Draggable>}
                 {listday &&
-                    <Draggable key={"ZmanimDayh"} >
+                    <Draggable key={"ZmanimDayh"} x={95} y={-40} width={"1665px"}>
                         <ZmanimDay key={"ZmanimDayholl"} title={"זמני תפילה חול"} />
                     </Draggable>}
                 {listshbatt &&
-                    <Draggable key={"ZmanimDay"} >
+                    <Draggable key={"ZmanimDay"} width={'1737px'} x={88} y={136}>
                         <ZmanimDay key={"onShbatt"} title={"זמני תפילה שבת"} type={'shbatt'} />
                     </Draggable>}
             </div>
