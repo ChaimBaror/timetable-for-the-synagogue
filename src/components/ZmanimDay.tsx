@@ -18,22 +18,14 @@ export default function ZmanimDay(props: Title): JSX.Element {
     const Sunset = useFromKosherZmanim("Sunset")
     const CandleLighting = useFromKosherZmanim("CandleLighting")
     const TzaisGeonim = useFromKosherZmanim("TzaisGeonim4Point37Degrees");
-    const [Zmanim_Day, setZmanim_Day] = useLocalStorage("Zmanim_Tfila", "");
-    const [shbatt, setShbatt] = useLocalStorage("shbatt", "");
+    const [zmanim, setZmanim] = useLocalStorage(type, "");
 
     useEffect(() => {
-        if (type == "Zmanim_Tfila") {
-            if (!Zmanim_Day) {
-                setZmanim_Day(Day)
-            }
-            setZmanim_Tfila([...Zmanim_Day])
+        if (!zmanim) {
+            setZmanim(type == "shbatt" ? SHABAAT : Day)
         }
-        if (type == "shbatt") {
-            if (!shbatt) {
-                setShbatt(SHABAAT)
-            }
-            setZmanim_Tfila([...shbatt])
-        }
+        setZmanim_Tfila([...zmanim])
+
     }, [])
 
     const sunsetPlusMinutes = (minutes: number) => {
@@ -53,15 +45,15 @@ export default function ZmanimDay(props: Title): JSX.Element {
 
 
     function listOfTime(list: any[]) {
-        return list.map(({id, name, time, select,Permanent }) => {            
-            const zmain = select == 'Permanent' || !select  ? Permanent : convertToZman[select as keyof typeof convertToZman](time);
+        return list.map(({ id, name, time, select, Permanent }) => {
+            const zmain = select == 'Permanent' || !select ? Permanent : convertToZman[select as keyof typeof convertToZman](time);
 
             return (<div key={id}>
                 <div key={name} className="title">{name} </div>
                 <div key={zmain} className="boxSub">{zmain}</div>
             </div>
             )
-        }) 
+        })
     }
 
     return (

@@ -92,14 +92,14 @@ function EditableCell({ cellData, onProductTableUpdate }) {
 
   return (
     <td>
-      {cellData.type == 'select'?
-      ( <select type={cellData.type} name={cellData.type} id={cellData.id} defaultValue={cellData.value} onChange={onProductTableUpdate}  >
-            { Object.keys(convertToZman).map((option) => (
-                <option key={option} value={option}>{convertToZman[option]}</option>
-            ))}
+      {cellData.type == 'select' ?
+        (<select type={cellData.type} name={cellData.type} id={cellData.id} defaultValue={cellData.value} onChange={onProductTableUpdate}  >
+          {Object.keys(convertToZman).map((option) => (
+            <option key={option} value={option}>{convertToZman[option]}</option>
+          ))}
         </select>
-      ):
-      <input type={cellData.type} name={cellData.name} id={cellData.id} defaultValue={cellData.value} onChange={onProductTableUpdate} />
+        ) :
+        <input type={cellData.type} name={cellData.name} id={cellData.id} defaultValue={cellData.value} onChange={onProductTableUpdate} />
       }
     </td>
   );
@@ -110,25 +110,25 @@ function ProductRow({ onDelEvent, onProductTableUpdate, product }) {
     <tr className="eachRow">
       <EditableCell onProductTableUpdate={onProductTableUpdate} cellData={{
         "type": "name",
-        name:"name",
+        name: "name",
         value: product.name,
         id: product.id
       }} />
       <EditableCell onProductTableUpdate={onProductTableUpdate} cellData={{
         type: "select",
-        name:"select",
+        name: "select",
         value: product.select,
         id: product.id
       }} />
       <EditableCell onProductTableUpdate={onProductTableUpdate} cellData={{
         name: product.select == 'Permanent' || !product.select ? "Permanent" : "time",
         type: product.select == 'Permanent' || !product.select ? "time" : "number",
-        value: product.time,
+        value: product.select == 'Permanent' || !product.select ? product.Permanent : product.time,
         id: product.id
       }} />
       <EditableCell onProductTableUpdate={onProductTableUpdate} cellData={{
         type: "category",
-        name:"category",
+        name: "category",
         value: product.category,
         id: product.id
       }} />
