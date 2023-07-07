@@ -8,6 +8,7 @@ import HomePage from '../pages/HomePage';
 import LoopBord from '../pages/LoopBord';
 import SelectPlace from '../pages/SelectPlace';
 import RequireAuth from './RequireAuth';
+import Schedule from '../pages/Schedule';
 
 // const Error404Page = React.lazy(() => import('../pages/Error404Page'));
 // const HomePage = React.lazy(() => import('../pages/HomePage'));
@@ -31,8 +32,9 @@ export const AppRouter: React.FC = () => {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes >
         <Route path="/" element={protectedLayout}>
-          <Route index element={< FullBoard />} />
+          <Route index element={< Schedule />} />
           <Route path="/dashboard" element={<FiveCellGrid />} />
+          <Route path="/schedule" element={<FullBoard />} />
           <Route path="/LoopBord" element={<LoopBord />} />
           <Route path="/template" element={<HomePage />} />
           <Route path="/HebcalZmanim" element={<SelectPlace />} />

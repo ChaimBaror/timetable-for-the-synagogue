@@ -18,6 +18,8 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
       { title: 'board', key: 'board', url: '/' },
       { title: 'dashboard', key: 'kanban', url: '/dashboard' },
       { title: 'Hebcal', key: 'Hebcal', url: '/HebcalZmanim' },
+      { title: 'schedule', key: 'schedule', url: '/schedule' },
+
     ],
   },
   // {
